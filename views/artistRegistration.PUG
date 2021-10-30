@@ -14,36 +14,36 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
 .row.m-5.p-5.p-lg-0.pt-lg-5.align-items-center.text-light.jinx
   .col-md.p-5.text-light
     .container.jinx.align-items-center
-      form#form-id(name='artistRegistrationForm' method='post' action='/artist' enctype="multipart/form-data")
+      form#form-id(name='artistRegistrationForm' method='POST' action='/artistinfo/artistreg' enctype="multipart/form-data")
         .row.mt-5.text-light
           .col-lg-4.border.p-5.border-right-0
             .form-action
               label#firstname(for='') First Name
-              input#f__name.form-control.mb-3(type='text' name='firstName' placeholder="Input artist's first Name ")
+              input#f__name.form-control.mb-3(type='text' name='firstname' placeholder="Input artist's first Name ")
             small#first__name__error.error
             .form-action
               label#lastname(for='') Last Name
-              input#l__name.form-control.mb-3(type='text' name='lastName' placeholder="Input  artist's  Last Name ")
+              input#l__name.form-control.mb-3(type='text' name='lastname' placeholder="Input  artist's  Last Name ")
             small#last__name__error.error
             .form-action
               label#stgname(for='') Stage Name
               br
-              input#stage__name.form-control.mb-3(type='text' name='stageName' placeholder="Input artist's Stage name")
+              input#stage__name.form-control.mb-3(type='text' name='stagename' placeholder="Input artist's Stage name")
             small#stage__name__error.error
             .form-action
               label#artistID(for='') Artist ID
               br
-              input#artist__id.form-control.mb-3(type='text' name='artistId' placeholder='Input artist ID')
+              input#artist__id.form-control.mb-3(type='text' name='artistid' placeholder='Input artist ID')
             small#artist__Id__error.error  
             .form-action
               label#telcontact(for='') Telephone Contact
               br
-              input#telephone__contact.form-control.mb-3(type='text' placeholder="Input artist's phone number" name='telephoneContact')
+              input#telephone__contact.form-control.mb-3(type='text' placeholder="Input artist's phone number" name='telephonecontact')
             small#phone__number__error.error  
             .form-action
               label#socialcontact(for='') Twitter Handle
               br
-              input#twitter-contact.form-control.mb-3(type='text' placeholder='Input artist twitter handle' name='twitterHandle ')
+              input#twitter-contact.form-control.mb-3(type='text' placeholder='Input artist twitter handle' name='twitterhandle ')
             small#artist__twitter__error.error  
           .col-lg-4.p-5.form-action.border
             .form-action
@@ -54,7 +54,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
             .form-action
               label#DOB(for='') Date of birth
               br
-              input#dob-id.form-control.mb-3(max='2017-12-31' type='date' name='artistDob')
+              input#dob-id.form-control.mb-3(max='2017-12-31' type='date' name='artistdob')
             small#artist__dob__error.error
             .form-action
               label#based(for='') Based in
@@ -69,7 +69,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
             .form-action
               label#date-started(for='') Date Began Music
               br
-              input#date-started.form-control.mb-3(type='date' name='dateOfStart')
+              input#date-started.form-control.mb-3(type='date' name='dateofstart')
             small#date__of__start__error.error
             .form-action
               label#location(for='') Location
@@ -80,12 +80,12 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
             .form-action
               label#numofalbums(for='') Number of Albums
               br
-              input#numalbums.form-control.mb-3(type='number' name='numberOfAlbums' placeholder="Input artist's number of albums")
+              input#numalbums.form-control.mb-3(type='number' name='numberofalbums' placeholder="Input artist's number of albums")
             small#number__of__albums__error.error
             .form-action
               label#numofsongs(for='') Number of Songs
               br
-              input#numberOfSongs.form-control.mb-3(type='number' name='numberOfSongs' placeholder="Input artist's number of songs")
+              input#numberOfSongs.form-control.mb-3(type='number' name='numberofsongs' placeholder="Input artist's number of songs")
             small#number__of__songs__error.error
             .form-action
               label#genre(for='') Genre
@@ -104,7 +104,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
             .form-action
               label#profile-photo(for='') Profile Picture
               br
-              input#artiste-image.form-control.mb-3(type='file' name='uploadPicture')
+              input#artiste-image.form-control.mb-3(type='file' name='uploadpicture')
             small#artist__picture__error.error
             #button-form
               input#submit-btn(type='submit' name='submit-button' value='SUBMIT')

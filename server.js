@@ -80,7 +80,7 @@ app.use('/public/images',express.static(__dirname + '/public'));
 
 //routes middleware
 app.use('/bands',bands);
-app.use('/Artists',Artists);
+app.use('/artistinfo',Artists);
 app.use('/labels',labels);
 app.use('/afrigo',afrigo);
 app.use('/qwela',qwela);

@@ -7,7 +7,7 @@ const multer = require("multer")
 //artists Routes
 
 //Display artist registration page when endpoint '/' is hit
-router.get("/", (req, res) => {
+router.get("/artistreg", (req, res) => {
   res.render("artistRegistration", { title: "Artists Registration form" });
 });
 
@@ -23,12 +23,17 @@ var upload = multer({ storage: storage })
 
 // Register artist information to the database
 
-router.post("/",upload.single("uploadpicture"), async (req, res) => {
+router.post("/artistreg",upload.single("uploadpicture"), async (req, res) => {
   try {
     const artistReg = new Artist(req.body);
-    Artist.uploadpicture = req.file.path
-    await artistReg.save();
-    res.redirect("/artist/");
+    artistReg.uploadpicture = req.file.path
+    await artistReg.save().then(data => {
+      console.log(data)
+    }).catch(err => {
+      console.log(err)
+    })
+    console.log("Info posted");
+    res.redirect("/artistinfo/artistreg");
   } catch (err) {
     console.log(err);
     res.status(400).send("Error");

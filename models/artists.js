@@ -31,7 +31,7 @@ const artistSchema = new mongoose.Schema({
         trim: true,
 
     },
-    artistemail: {
+    email: {
         type: String,
         trim: true,
 

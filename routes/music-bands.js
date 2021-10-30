@@ -10,7 +10,7 @@ router.get('/solo-artists',(req,res)=>{
 
 router.post('/solo-artists', (req,res)=>{
     res.render('solo-artists',{title:'Artists'});
-});
+}); 
 
 
 // Export Module
