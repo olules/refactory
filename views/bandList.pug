@@ -1,0 +1,55 @@
+extends layout 
+block content
+  .panel
+    .panel-head
+      h6.title Band List
+    span.newCust
+      a(href='/band/') Register new band
+    #searchBtn.input-group
+      .form-outline
+        input#form1.form-control(type='search' placeholder='search by name' name='bandName')
+      button#SBtn.btn.btn-primary(type='button')
+        i.fa.fa-search 
+    .panel-body
+      table.zebra
+        tbody
+          tr
+            th Band name
+            th Band owner
+            th Band number of albums
+            th Band ID
+            th Band Email
+            th Band home
+            th Band crowns
+            th Band slogan
+            th genre
+            th number of members
+            th Date of formation
+            th picture 
+            th sponsors
+            th contact 
+            th icon
+          if bands.length 
+          each band in bands  
+            tr
+              td  #{band.bandname}  
+              td  #{band.bandowner}
+              td  #{band.bandalbums}
+              td  #{band.bandid}
+              td  #{band.bandemail} 
+              td  #{band.bandhome}
+              td  #{band.bandcrowns}
+              td  #{band.bandslogan} 
+              td  #{band.genre}
+              td  #{band.bandnumberofmembers}
+              td  #{band.dateofformation} 
+              td  #{band.picture}
+              td  #{band.bandsponsors}
+              td  #{band.telephonecontact} 
+              td  #{band.bandicon}
+
+              td(style="display:flex; justify-content:center; align-items:center;")
+                a.edit(href='/band/update/'+band._id)
+                  ion-icon(name='create-outline')
+                a.remove(href='/band/delete/'+band._id)
+                  ion-icon(name='trash-outline')

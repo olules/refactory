@@ -1,0 +1,80 @@
+body::before {
+  display: block;
+  content: '';
+  height: 60px;
+  
+}
+body{
+  background: #000000;
+  background: linear-gradient(to right, #08202b, #08202b);
+}
+.jinx{
+  background: #000000;
+  background: linear-gradient(to right, #010608, #110d1d);
+ 
+}
+#navbar__logo {
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #fffb24 0%, #ff5420 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+.special__card{
+  background: #9dda2dbd;
+  background: linear-gradient(to right, #1b101b5d, #0c333f5e);
+}
+.special__card__1{
+ 
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+
+cursor: pointer;
+}
+.special__card__1:hover{
+  transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(255, 255, 255, 0.801), 0 4px 8px rgb(0, 255, 234);
+}
+
+
+
+.card{
+  
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+
+cursor: pointer;
+}
+
+.card:hover{
+   transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(255, 255, 255, 0.801), 0 4px 8px rgb(0, 255, 234);
+}
+iframe{
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+
+}
+iframe:hover{
+  
+}
+.heading{
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #fffb24 0%, #ff5420 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+
+
+

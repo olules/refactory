@@ -1,0 +1,54 @@
+extends layout 
+block content
+  .panel
+    .panel-head
+      h6.title Artist List
+    span.newArtist
+      a(href='/artist/') Register new Artist
+    #searchBtn.input-group
+      .form-outline
+        input#form1.form-control(type='search' placeholder='search by name' name='artistName')
+      button#SBtn.btn.btn-primary(type='button')
+        i.fa.fa-search 
+    .panel-body
+      table.zebra
+        tbody
+          tr
+            th First name
+            th Last name
+            th Stage name
+            th Artist ID
+            th Artist Email
+            th NIN
+            th District based in
+            th Date of Birth
+            th location
+            th number of albums 
+            th Number of songs
+            th picture 
+            th genre
+          if artists.length 
+          each artist in artists  
+            tr
+              td  #{artist.firstname}  
+              td  #{artist.lastname}
+              td  #{artist.stagename}
+              td  #{artist.artistid}
+              td  #{artist.telephonecontact} 
+              td  #{artist.twitterhandle}
+              td  #{artist.artistemail}
+              td  #{artist.artistdob} 
+              td  #{artist.districtbasedin}
+              td  #{artist.nationalidnumber}
+              td  #{artist.dateofstart} 
+              td  #{artist.location}
+              td  #{artist.numberofalbums}
+              td  #{artist.numberofsongs} 
+              td  #{artist.genre}
+              
+
+              td(style="display:flex; justify-content:center; align-items:center;")
+                a.edit(href='/artist/update/'+artist._id)
+                  ion-icon(name='create-outline')
+                a.remove(href='/artist/delete/'+artist._id)
+                  ion-icon(name='trash-outline')

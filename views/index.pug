@@ -1,0 +1,191 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
+  script(src='')
+  link(rel='stylesheet' href='/css/style.css')
+  title Refactory project
+
+nav.navbar.navbar-expand-lg.card.jinx.py-3.fixed-top
+  .container
+    a#navbar__logo.navbar-brand(href='/index') UGAAMUX
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navmenu')
+      span.navbar-toggler-icon
+    #navmenu.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto
+        li.nav-item
+          a.nav-link.text-warning(href='#Solo__artists') Solo Artists
+        li.nav-item
+          a.nav-link.text-warning(href='#Music__bands') Music Bands
+        li.nav-item
+          a.nav-link.text-warning(href='#Other__artists') Performing Artists
+
+section.jinx.text-light.p-5.p-lg-0.pt-lg-5.text-center.text-sm-start
+  .container
+    .d-sm-flex.align-items-center.justify-content-between
+      div
+        h1
+          | The National Cultural center &amp; Uganda Performing arts association  
+          span.text-warning  from the pearl 
+        p.lead.my-4
+          | Ugaamux is an archive which focuses on music artists, bands and performing artists.
+      img.img-fluid.w-50.mb-5.d-none.d-sm-block(src='img/people.png' alt='')
+section.p-5.jinx(id='#Solo__artists')
+  .container
+    h2.text-center.heading Solo Artists
+    p.lead.text-center.text-white.mb-5
+      | Music Solo Artists from the pearl
+    .row.g-4
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='lamu.html')
+              img.img-fluid.mb-3(src='img/1.png' alt='')
+            h3.card-title.mb-3.text-light Lamu
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='denesi.html')
+              img.img-fluid.mb-3(src='img/2.png' alt='')
+            h3.card-title.mb-3.text-light Denesi
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='kavali.html')
+              img.img-fluid.mb-3(src='img/3.png' alt='')
+            h3.card-title.mb-3.text-light Kavali King
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='chenkobe.html')
+              img.img-fluid.mb-3(src='img/chenkobee.png' alt='')
+            h3.card-title.mb-3.text-light Chenkobe
+
+section.p-5.jinx
+  #Music__bands.container
+    h2.text-center.heading Music Bands
+    p.lead.text-center.text-white.mb-5
+      | Music bands from the pearl
+    .row.text-center.g-4
+      .col-md
+        .card.special__card.text-light
+          .card-body.text-center
+            a(href='janzi')
+              img.img-fluid.mb-3(src='img/janzi.png' alt='')
+            h3.card-title.mb-3 Janzi Band
+      .col-md
+        .card.special__card.text-light
+          .card-body.text-center
+            a(href='ivunga.html')
+              img.img-fluid.mb-3(src='img/ivunga.png' alt='')
+            h3.card-title.mb-3 Ivunga Band
+      .col-md
+        .card.special__card.text-light
+          .card-body.text-center
+            a(href='afrigo')
+              img.img-fluid.mb-3(src='img/afrigo.png' alt='')
+            h3.card-title.mb-3 Afrigo Band
+      .col-md
+        .card.special__card.text-light
+          .card-body.text-center
+            a(href='qwela.html')
+              img.img-fluid.mb-3(src='img/Qwela.png' alt='')
+            h3.card-title.mb-3 Qwela Band
+section.p-5.jinx(id='#Other__artists')
+  .container
+    h2.text-center.heading Documentary directors
+    p.lead.text-center.text-white.mb-5
+      | Documentary directors from the pearl
+    .row.g-4
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='fahad.html')
+              img.img-fluid.mb-3(src='img/fahad.png' alt='')
+            h3.card-title.mb-3.text-light  Ssimbwa Fahad
+      .col-md-6.col-lg-3
+        .card.special__card
+          a(href='shafic.html')
+            .card-body.text-center
+              img.img-fluid.mb-3(src='img/shafiq.png' alt='')
+          h3.card-title.mb-3.text-light  Sserwadda Shafic
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='gwaro.html')
+              img.img-fluid.mb-3(src='img/gwaro.png' alt='')
+            h3.card-title.mb-3.text-light Anthony Gwaro
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='martin.html')
+              img.img-fluid.mb-3(src='img/martin.png' alt='')
+            h3.card-title.mb-3.text-light Martin Kharumwa
+section.p-5.jinx(id='#Other__artists')
+  .container
+    h2.text-center.heading Dramatists
+    p.lead.text-center.text-white.mb-5
+      | Actors from the pearl
+    .row.g-4
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='/artists/cleopatra')
+              img.img-fluid.mb-3(src='img/cleopatra.png' alt='')
+            h3.card-title.mb-3.text-light Cleopatra Koheirwe
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='patriick.html')
+              img.img-fluid.mb-3(src='img/eric.png' alt='')
+            h3.card-title.mb-3.text-light Patrick Ssenjovu
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='luswata.html')
+              img.img-fluid.mb-3(src='img/luswata.png' alt='')
+            h3.card-title.mb-3.text-light Philip Luswata
+      .col-md-6.col-lg-3
+        .card.special__card
+          .card-body.text-center
+            a(href='natasha.html')
+              img.img-fluid.mb-3(src='img/natasha.png' alt='')
+            h3.card-title.mb-3.text-light Natasha Sinayobye
+section#about.p-5.text-light
+  .container
+    .row.align-items-center.justify-content-between
+      .col-md.p-5.text-warning
+        h2 About Ugaamux
+        p.lead.text-light
+          | Ugaamux came about as a result of a partnership of the National Cultural center &amp; Uganda Performing arts association
+        p
+          | Ugaamux is an archive which has performing artists, musicians i.e bands and solo artis. Stream music and view works made by Uganda&apos;s best artists!
+      .col-md
+        img.img-fluid(src='img/dudes.png' alt='')
+
+section.p-5
+  .container
+    .row.g-4
+      .col-md
+        h2.text-center.text-warning.mb-4 Contact Info
+        ul.list-group.list-group-flush.lead
+          li.list-group-item
+            span.fw-bold Main Location:
+            |  Bukoto, Block 365
+          li.list-group-item
+            span.fw-bold Sign up Phone:
+            |  +256000000
+          li.list-group-item
+            span.fw-bold Sign up Email:
+            |                 signup@ugaamux.test
+
+footer.p-5.text-white.text-center.position-relative
+  .container
+    p.lead Copyright &copy; 2021 Ugaamux
+    a.position-absolute.bottom-0.end-0.p-5(href='#')
+      i.bi.bi-arrow-up-circle.h1
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous')

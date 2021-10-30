@@ -1,0 +1,26 @@
+{
+  "name": "refactory",
+  "version": "1.0.0",
+  "description": "> Simple one page website for a fake bootcamp",
+  "main": "server.js",
+  "dependencies": {
+    "body": "^5.1.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "lint": "^0.7.0",
+    "mongoose": "^6.0.12",
+    "multer": "^1.4.3",
+    "parser": "^0.1.4",
+    "passport": "^0.5.0",
+    "passport-local-mongoose": "^6.1.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

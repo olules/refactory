@@ -1,0 +1,124 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/style.css')
+  title BANDS REGISTRATION FORM
+  style.
+nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
+  .container
+    a#navbar__logo.navbar-brand(href='#') UGAAMUX
+// form
+.row.p-s.pt-5.p-lg-0.pt-lg-5.align-items-center.text-light.jinx.align-items-center
+  .col-md.jinx.text-light
+    .container.border.mb-0.align-items-center
+      h2.text-center.mt-3.navbar__logo
+        | Band&apos;s Registration form
+      form#form-id(name='bandRegistrationForm' method='post' action='/bands__reg__form' enctype="multipart/form-data")
+        .row.mt-5.text-light
+          .col-lg-4.border-end.p-5
+            .form-action
+              label#bandname(for='') Band Name
+              br
+              input#band-name.form-control.mb-3(type='text' placeholder='Input Band Name' name='bandName')
+            small#band__name__error.error
+            .form-action.text-dark
+              label#bandowner(for='') Band Owner
+              br
+              input#band-owner.form-control.mb-3(type='text' placeholder="Input the Band owner's name" name='bandOwner')
+            small#band__owner__error.error
+            .form-action
+              label#bandhome(for='') Band Home
+              br
+              input#band-home.form-control.mb-3(type='text' placeholder='Input Band Home' name='bandHome')
+            small#band__home__error.error
+            .form-action
+              label#bandmembers(for='') Number of Members
+              br
+              input#band-numbers.form-control.mb-3(type='number' placeholder='Input number of band members' name='bandNumberOfMembers')
+            small#band__Number__of__members__error.error
+            .form-action
+              label#bandslogan(for='') Band Slogan
+              br
+              input#band-slogan.form-control.mb-3(type='text' placeholder='Input band slogan' name='bandSlogan')
+            small#band__slogan__error.error
+            .form-action
+              label#Band-ID(for='') Band ID
+              br
+              input#band-id.form-control.mb-3(type='text' name='bandId' placeholder='Input Band ID')
+            small#band__id__error.error
+            .form-action
+              label#numofsongs(for='') Number of Songs
+              br
+              input#numofsongs.form-control.mb-3(type='number' name='bandNumberOfSongs')
+            small#band__number__of__songs__error.error
+          .col-lg-4.border-end.p-5
+            .form-action
+              label#date-of-formation(for='') Date of Formation
+              br
+              input#date-of-formation.form-control.mb-3(type='date' name='dateOfFormation')
+            small#date__of__formation__error.error
+            .form-action
+              label#telcontact(for='') Telephone Contact
+              br
+              input#telephonecontact.form-control.mb-3(type='text' placeholder='Input Band  Phone number' name='telephoneContact')
+            small#telephone__contact__error.error
+            .form-action
+              label#twitterhandle(for='') Twitter Handle
+              br
+              input#twitterontact.form-control.mb-3(type='text' placeholder='Input band twitter handle' name='twitterHandle')
+            small#twitter__handle__error.error
+            .form-action
+              label#contact(for='') Email 
+              br
+              input#email-contact.form-control.mb-3(type='text' placeholder='Input Band email' name='bandEmail')
+            small#band__email__error.error
+            .form-action
+              label#band-crowns(for='') Band Crowns
+              br
+              input#band-crowns.form-control.mb-3(type='text' placeholder='Input Band Crowns' name='bandCrowns')
+            small#band__crowns__error.error
+            .form-action
+              label#albums(for='') Number of Albums
+              br
+              input#band-albums.form-control.mb-3(type='number' name='albums')
+            small#band__albums__error.error
+            .form-action
+              label#genre(for='')  Genre 
+              br
+              input#band-genre.form-control.mb-3(type='text' placeholder='Input Band Genre ' name='genre')
+            small#genre__error.error
+          .col-lg-4.p-5
+            .form-action
+              label#band-icon(for='')  Band Icon 
+              br
+              input#Band-icon.form-control.mb-3(type='file' name='band__icon')
+            small#band__icon__error.error
+            .form-action.mb-3
+              label#profile-pic(for='')  Profile Picture 
+              br
+              input#profile-photo.form-control(type='file' name='profilePicture')
+            small#profile__picture__error.error
+            .form-action
+              label#otherowners(for='')  Other band owners 
+              br
+              textarea#otherbandowners.form-control(name='otherBandOwners' placeholder='Enter Other band Owners' cols='30' rows='10')
+            small#other__band__owners__error.error
+            .form-action
+              label#sponsors(for='') Band Sponsors
+              br
+              textarea#band-sponsors.form-control.mb-3(name='bandSponsors' placeholder='Enter Band Sponsors' cols='30' rows='10')
+            small#band__sponsor__error.error
+            #button-form
+              input#submit-btn(type='submit' name='submit-button' value='SUBMIT')
+              input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
+script(src='/javascript/bandRegistration.js')
+footer.p-5.jinx.text-white.text-center.position-relative
+  .container
+    p.lead Copyright &copy; 2021 Ugaamux
+    a.position-absolute.bottom-0.end-0.p-5(href='#')
+      i.bi.bi-arrow-up-circle.h1

@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
+  script(src='')
+  link(rel='stylesheet' href='style.css')
+  title Martin
+nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
+  .container
+    a#navbar__logo.navbar-brand(href='/martin/') UGAAMUX
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navmenu')
+      span.navbar-toggler-icon
+    #navmenu.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto
+        li.nav-item
+          a.nav-link.text-warning(href='#Solo__artists') Solo Artists
+        li.nav-item
+          a.nav-link.text-warning(href='#Music__bands') Music Bands
+        li.nav-item
+          a.nav-link.text-warning(href='#Other__artists') Others
+section.jinx.text-light.p-5.p-lg-0.pt-lg-5.mt-5.mb-5.text-center.text-sm-start
+  .container
+    .d-sm-flex.align-items-center.justify-content-between
+      div
+        h1
+          span.text-warning Martin Kharumwa
+        p.lead.my-4
+          | I&apos;m a freelance Photographer/Videographer working in East Africa.
+          | Over the past 8 years I&apos;ve worked on projects for NGOs like the Girl Effect and Save the Children documenting aid programs in the region.  As well as editorial assignments for publications like Annabelle, El Pais, and Journal.dk
+          | I have a great network of fixers and storytellers that I work with on most projects, which is the secret to my continued career in the region.
+      img.img-fluid.w-50.mb-5.d-none.d-sm-block(src='img/martin.png' alt='')

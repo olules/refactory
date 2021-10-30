@@ -1,0 +1,43 @@
+extends layout 
+block content
+  .panel
+    .panel-head
+      h6.title label List
+    span.newCust
+      a(href='/label/') Register new label
+    #searchBtn.input-group
+      .form-outline
+        input#form1.form-control(type='search' placeholder='search by name' name='labelName')
+      button#SBtn.btn.btn-primary(type='button')
+        i.fa.fa-search 
+    .panel-body
+      table.zebra
+        tbody
+          tr
+            th label name
+            th label owner
+            th label home
+            th label icon
+            th label slogan
+            th number of members
+            th Date of formation
+            th Artists managed 
+            th sponsors
+          if labels.length 
+          each label in labels  
+            tr
+              td  #{label.name}  
+              td  #{label.owner}
+              td  #{label.home}
+              td  #{label.icon}
+              td  #{label.slogan} 
+              td  #{label.numberofmembers}
+              td  #{label.dateofformation}
+              td  #{label.artistsmanaged} 
+              td  #{label.sponsors}
+
+              td(style="display:flex; justify-content:center; align-items:center;")
+                a.edit(href='/label/update/'+label._id)
+                  ion-icon(name='create-outline')
+                a.remove(href='/label/delete/'+label._id)
+                  ion-icon(name='trash-outline')

@@ -1,0 +1,38 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
+  script(src='')
+  link(rel='stylesheet' href='style.css')
+  title Ivunga band
+nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
+  .container
+    a#navbar__logo.navbar-brand(href='#') UGAAMUX
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navmenu')
+      span.navbar-toggler-icon
+    #navmenu.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto
+        li.nav-item
+          a.nav-link.text-warning(href='#Solo__artists') Solo Artists
+        li.nav-item
+          a.nav-link.text-warning(href='#Music__bands') Music Bands
+        li.nav-item
+          a.nav-link.text-warning(href='#Other__artists') Others
+section.jinx.text-light.p-5.p-lg-0.pt-lg-5.mt-5.mb-5.text-center.text-sm-start
+  .container
+    .d-sm-flex.align-items-center.justify-content-between
+      div
+        h1
+          span.text-warning  Ivunga Band 
+        p.lead.my-4
+          | IvugaLive is a live entertainment service provider offering services for your private or public function, Services include: The Ivuga Band,The Ivuga Gospel Choir, The Ivuga Cultural Troupe and we also offer public address and Sound Systems.
+          | The name &rdquo;ivuga&rdquo; comes from &rdquo;ebivuga&rdquo; which means &lsquo;instruments&rsquo; in Luganda, a local ethnic language in Uganda.
+          | It was born from the great musical passion and skill of each of its members and is dedicated to giving the Kampala entertainment scene a touch of its musical genius.
+      img.img-fluid.w-50.mb-5.d-none.d-sm-block(src='img/ivuga.png' alt='')
+    h1.text-center
+      span.text-warning.text-center Top songs 
+    iframe.pt-0(title='deezer-widget' src='https://widget.deezer.com/widget/dark/artist/66293652/top_tracks' width='100%' height='300' frameborder='0' allowtransparency='true' allow='encrypted-media; clipboard-write')
