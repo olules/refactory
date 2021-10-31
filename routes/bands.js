@@ -2,25 +2,49 @@
 const express = require("express");
 const router = express.Router();
 const Band = require("../models/bands");
+const multer = require("multer")
 
 //bands routes
 //Display band registration page when endpoint '/' is hit
-router.get("/", (req, res) => {
+router.get("/bandreg", (req, res) => {
   res.render("bandRegistration", { title: "Bands Registration Form" });
 });
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/img');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+var upload = multer({ storage })
 
 //Register band information to the datatbase
 
-router.post("/", async (req, res) => {
-  try {
-    const bandReg = new Band(req.body);
-    await bandReg.save();
-    res.redirect("/band");
-  } catch (error) {
-    console.log(error);
-    res.status(400).send("Error");
-  }
-});
+router.post("/bandreg", upload.fields([{
+  name: 'bandicon', maxCount: 1
+}, {
+  name: 'profilepicture', maxCount: 1
+}])
+  , async (req, res) => {
+
+    try {
+      console.log(req.body)
+      const bandReg = new Band(req.body);
+      bandReg.bandicon = req.files.bandicon[0].path;
+      bandReg.profilepicture = req.files.profilepicture[0].path;
+      await bandReg.save().then(data => {
+        console.log(data)
+      }).catch(err => {
+        console.log(err)
+      })
+      console.log("Info posted");
+      res.redirect("/bandinfo/bandreg");
+    } catch (error) {
+      console.log(error);
+      res.status(400).send("Error");
+    }
+  });
 
 //Fetch band information from the database
 

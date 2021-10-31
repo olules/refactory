@@ -19,7 +19,7 @@ const RegUser = require('./models/User');
 // //Import Routes
 const Artists = require("./routes/artists");
 const afrigo = require("./routes/afrigo");
-const bands = require("./routes/bands");
+const Bands = require("./routes/bands");
 const labels = require("./routes/labels");
 const denesi = require("./routes/denesi");
 const ivunga = require("./routes/ivunga");
@@ -79,7 +79,7 @@ app.use('/public/images',express.static(__dirname + '/public'));
 
 
 //routes middleware
-app.use('/bands',bands);
+app.use('/bandinfo',Bands);
 app.use('/artistinfo',Artists);
 app.use('/labels',labels);
 app.use('/afrigo',afrigo);

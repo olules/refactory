@@ -52,14 +52,14 @@ const bandSchema = new mongoose.Schema({
 
     },
     bandsponsors:{
-        type: Date,
+        type: String,
         trim: true,
 
     },
     
     
     dateofformation:{
-        type: Number,
+        type: Date,
         trim: true,
 
     },
@@ -83,18 +83,13 @@ const bandSchema = new mongoose.Schema({
         trim: true,
 
     },
+    bandicon:{
+        type: String
+
+    },
     profilepicture:{
-        data: Buffer,
         type: String
 
     }
-   
-    
-    
-    
-    
-
-    
-
 })
 module.exports =  mongoose.model('band', bandSchema)
