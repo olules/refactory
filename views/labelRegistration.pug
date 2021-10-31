@@ -14,102 +14,64 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
 .row.m-5.p-5.p-lg-0.pt-lg-5.align-items-center.text-light.jinx
   .col-md.p-5.text-light
     .container.jinx.align-items-center
-      form#form-id(name='artistRegistrationForm' method='post' action='/artists__reg__form' enctype="multipart/form-data")
+      form#form-id(name='labelRegistrationForm' method='POST' action='/labelinfo/labelreg'  enctype="multipart/form-data")
         .row.mt-5.text-light
-          .col-lg-4.border.p-5.border-right-0
+          .col-lg-6.border-end.p-5
             .form-action
-              label#firstname(for='') First Name
-              input#f__name.form-control.mb-3(type='text' name='firstName' placeholder="Input artist's first Name ")
-            small#first__name__error.error
-            .form-action
-              label#lastname(for='') Last Name
-              input#l__name.form-control.mb-3(type='text' name='lastName' placeholder="Input  artist's  Last Name ")
-            small#last__name__error.error
-            .form-action
-              label#stgname(for='') Stage Name
+              label#labelname(for='') Label Name
               br
-              input#stage__name.form-control.mb-3(type='text' name='stageName' placeholder="Input artist's Stage name")
-            small#stage__name__error.error
+              input#label-name.form-control.mb-3(type='text' placeholder='Input label Name' name='labelname')
+            small#label__name__error.error
             .form-action
-              label#artistID(for='') Artist ID
+              label#labelowner(for='') Label Owner
               br
-              input#artist__id.form-control.mb-3(type='text' name='artistId' placeholder='Input artist ID')
-            small#artist__Id__error.error  
+              input#label-owner.form-control.mb-3(type='text' placeholder="Input the label owner's name" name='labelowner')
+            small#label__owner__error.error
             .form-action
-              label#telcontact(for='') Telephone Contact
+              label#labelhome(for='') Label Home
               br
-              input#telephone__contact.form-control.mb-3(type='text' placeholder="Input artist's phone number" name='telephoneContact')
-            small#phone__number__error.error  
+              input#label-home.form-control.mb-3(type='text' placeholder='Input label Home' name='labelhome')
+            small#label__home__error.error
             .form-action
-              label#socialcontact(for='') Twitter Handle
+              label#labelmembers(for='') Number of Members
               br
-              input#twitter-contact.form-control.mb-3(type='text' placeholder='Input artist twitter handle' name='twitterHandle ')
-            small#artist__twitter__error.error  
-          .col-lg-4.p-5.form-action.border
+              input#label-numbers.form-control.mb-3(type='number' placeholder='Input number of label members' name='labelnumberofmembers')
+            small#label__Number__of__members__error.error
+             .form-action
+              label#date-of-formation(for='') Date of Formation
+              br
+              input#date-of-formation.form-control.mb-3(type='date' name='dateofformation')
+            small#date__of__formation__error.error
+          
+           
+            
+          .col-lg-6.p-5
+            
+            .form-action.mb-3
+              label#profile-pic(for='')  Profile Picture 
+              br
+              input#profile-photo.form-control(type='file' name='profilepicture')
+            small#profile__picture__error.error
             .form-action
-              label#contact(for='') Email 
+              label#label-icon(for='')  Label Icon 
               br
-              input#email-contact.form-control.mb-3(type='text' placeholder="Input artist's Email" name='email')
-            small#artist__email__error.error
+              input#Band-icon.form-control.mb-3(type='file' name='labelicon')
+            small#label__icon__error.error
+           
             .form-action
-              label#DOB(for='') Date of birth
+              label#sponsors(for='') Label Sponsors
               br
-              input#dob-id.form-control.mb-3(max='2017-12-31' type='date' name='artistDob')
-            small#artist__dob__error.error
+              textarea#label-sponsors.form-control.mb-3(name='labelsponsors' placeholder='Enter label Sponsors' cols='20' rows='3')
+            small#label__sponsor__error.error
             .form-action
-              label#based(for='') Based in
+              label#sponsors(for='') Artists Managed
               br
-              input#based.mb-3.form-control(type='text' name='districtBasedIn' placeholder='Input the district that the artist is based')
-            small#district__based__in__error.error
-            .form-action
-              label#nin(for='') National ID NIN
-              br
-              input#NIN-id.form-control.mb-3(type='text' name='nationaldNumber' placeholder="Input artist's  NIN")
-            small#artist__nin__error.error
-            .form-action
-              label#date-started(for='') Date Began Music
-              br
-              input#date-started.form-control.mb-3(type='date' name='dateOfStart')
-            small#date__of__start__error.error
-            .form-action
-              label#location(for='') Location
-              br
-              input#location.form-control.mb-3(type='text' name='location' placeholder="Input artist's location")
-            small#artist__location__error.error
-          .col-lg-4.p-5.form-action.border
-            .form-action
-              label#numofalbums(for='') Number of Albums
-              br
-              input#numalbums.form-control.mb-3(type='number' name='numberOfAlbums' placeholder="Input artist's number of albums")
-            small#number__of__albums__error.error
-            .form-action
-              label#numofsongs(for='') Number of Songs
-              br
-              input#numberOfSongs.form-control.mb-3(type='number' name='numberOfSongs' placeholder="Input artist's number of songs")
-            small#number__of__songs__error.error
-            .form-action
-              label#genre(for='') Genre
-              br
-              input#music-type.form-control.mb-3(type='text' placeholder='Input artist Genre' name='genre')
-            small#artist__genre__error.error
-            p#pgender Gender
-            #gender-form
-              span
-                label#fmale(for='smale') Male
-                input#smale.mb-3(type='radio' name='gender' value='male')
-              span
-                label#fmale(for='sfemale') Female
-                input#sfemale.mb-3(type='radio' name='gender' value='female')
-            small#artist__gender__error.error
-            .form-action
-              label#profile-photo(for='') Profile Picture
-              br
-              input#artiste-image.form-control.mb-3(type='file' name='uploadPicture')
-            small#artist__picture__error.error
+              textarea#artists-managed.form-control.mb-3(name='artistsmanaged' placeholder='Input artists managed' cols='20' rows='3')
+            small#label__artists__error.error
             #button-form
               input#submit-btn(type='submit' name='submit-button' value='SUBMIT')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
-script(src='/public/javascript/artistsReg.js')
+script(src='/public/javascript/labelReg.js')
 footer.p-5.jinx.text-white.text-center.position-relative
   .container
     p.lead Copyright &copy; 2021 Ugaamux

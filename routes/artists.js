@@ -39,6 +39,15 @@ router.post("/artistreg",upload.single("uploadpicture"), async (req, res) => {
     res.status(400).send("Error");
   }
 });
+// //get an artist from the database
+// router.get("artistinfo/:id", async (req, res) => {
+//   try {
+//     const getArtist = await Artist.findOne({ _id: req.params.id });
+//     res.status(201).render("getArtist", { artist: getArtist });
+//   } catch (err) {
+//     res.status(400).send("Cannot find Artist");
+//   }
+// });
 
 // Fetch artist information from the database
 

@@ -81,7 +81,7 @@ app.use('/public/images',express.static(__dirname + '/public'));
 //routes middleware
 app.use('/bandinfo',Bands);
 app.use('/artistinfo',Artists);
-app.use('/labels',labels);
+app.use('/labelinfo',labels);
 app.use('/afrigo',afrigo);
 app.use('/qwela',qwela);
 // app.use('/home',homeRoute);

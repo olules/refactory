@@ -1,44 +1,39 @@
 const mongoose = require('mongoose');
 
 const musicLabelsSchema = new mongoose.Schema({
-    name:{
+    labelname:{
         type: String,
         trim: true,
 
     },
-    owner:{
+    labelowner:{
+        type: String,
+        trim: true,
+
+    },
+    
+    
+    labelhome:{
+        type: String,
+        trim: true,
+
+    },
+    labelicon:{
         type: String,
         trim: true,
 
     },
     
     
-    home:{
+    labelsponsors:{
         type: String,
-        trim: true,
-
-    },
-    icon:{
-        type: String,
-        trim: true,
-
-    },
-    
-    slogan:{
-        type: String,
-        trim: true,
-
-    },
-    
-    sponsors:{
-        type: Array,
         trim: true,
 
     },
    
     
     dateofformation:{
-        type: Number,
+        type: Date,
         trim: true,
 
     },
@@ -54,13 +49,10 @@ const musicLabelsSchema = new mongoose.Schema({
         type: String
 
     },
-   
-    
-    
-    
-    
+    profilepicture:{
+        type: String
 
-    
 
+    }
 })
 module.exports =  mongoose.model('labels', musicLabelsSchema)

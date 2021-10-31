@@ -2,20 +2,42 @@
 const express = require("express");
 const router = express.Router();
 const Label = require("../models/labels");
+const multer = require("multer");
 
 //labels routes
 //Display label registration page when endpoint '/' is hit
-router.get("/", (req, res) => {
+router.get("/labelreg", (req, res) => {
     res.render("labelRegistration", { title: "Lebels Registration Form" });
 });
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/img');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+var upload = multer({ storage })
 
 //Register label information to the datatbase
 
-router.post("/", async (req, res) => {
+router.post("/labelreg", upload.fields([{
+    name: 'labelicon', maxCount: 1
+}, {
+    name: 'profilepicture', maxCount: 1
+}]), async (req, res) => {
     try {
-        const labelReg = new label(req.body);
-        await labelReg.save();
-        res.redirect("/label");
+        console.log(req.body)
+        const labelReg = new Label(req.body);
+        labelReg.labelicon = req.files.labelicon[0].path;
+        labelReg.profilepicture = req.files.profilepicture[0].path;
+        await labelReg.save().then(data => {
+            console.log(data)
+        }).catch(err => {
+            console.log(err)
+        })
+        console.log("Info posted");
+        res.redirect("/labelinfo/labelreg");
     } catch (error) {
         console.log(error);
         res.status(400).send("Error");
@@ -27,12 +49,14 @@ router.post("/", async (req, res) => {
 router.get("/list", async (req, res) => {
     try {
         let labelDetails = await Label.find();
-        res.render("labelList", { labels: labelDetails, title: "labels List" });
+        res.render("labelsList", { labels: labelDetails, title: "labels List" });
     } catch (error) {
         console.log(error);
         res.status(500).send("Cannot retrieve label information");
     }
 });
+
+
 
 //update artist information
 

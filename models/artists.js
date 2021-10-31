@@ -26,11 +26,6 @@ const artistSchema = new mongoose.Schema({
         trim: true,
 
     },
-    twitterhandle: {
-        type: String,
-        trim: true,
-
-    },
     email: {
         type: String,
         trim: true,
