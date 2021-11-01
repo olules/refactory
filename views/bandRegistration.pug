@@ -26,7 +26,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               br
               input#band-name.form-control.mb-3(type='text' placeholder='Input Band Name' name='bandname')
             small#band__name__error.error
-            .form-action.text-dark
+            .form-action
               label#bandowner(for='') Band Owner
               br
               input#band-owner.form-control.mb-3(type='text' placeholder="Input the Band owner's name" name='bandowner')
@@ -51,11 +51,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               br
               input#band-id.form-control.mb-3(type='text' name='bandid' placeholder='Input Band ID')
             small#band__id__error.error
-            .form-action
-              label#numofsongs(for='') Number of Songs
-              br
-              input#numofsongs.form-control.mb-3(type='number' name='bandnumberofsongs')
-            small#band__number__of__songs__error.error
+            
           .col-lg-4.border-end.p-5
             .form-action
               label#date-of-formation(for='') Date of Formation
@@ -67,11 +63,6 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               br
               input#telephonecontact.form-control.mb-3(type='text' placeholder='Input Band  Phone number' name='telephonecontact')
             small#telephone__contact__error.error
-            .form-action
-              label#twitterhandle(for='') Twitter Handle
-              br
-              input#twitterontact.form-control.mb-3(type='text' placeholder='Input band twitter handle' name='twitterhandle')
-            small#twitter__handle__error.error
             .form-action
               label#contact(for='') Email 
               br
@@ -94,6 +85,11 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
             small#genre__error.error
           .col-lg-4.p-5
             .form-action
+              label#numofsongs(for='') Number of Songs
+              br
+              input#numofsongs.form-control.mb-3(type='number' name='bandnumberofsongs')
+            small#band__number__of__songs__error.error
+            .form-action
               label#band-icon(for='')  Band Icon 
               br
               input#Band-icon.form-control.mb-3(type='file' name='bandicon')
@@ -104,14 +100,14 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               input#profile-photo.form-control(type='file' name='profilepicture')
             small#profile__picture__error.error
             .form-action
-              label#otherowners(for='')  Other band owners 
+              label#otherowners(for='')  Other band owners(if any)
               br
-              textarea#otherbandowners.form-control(name='otherbandowners' placeholder='Enter Other band Owners' cols='30' rows='10')
+              textarea#otherbandowners.form-control(name='otherbandowners' placeholder='Enter Other band Owners' cols='30' rows='3')
             small#other__band__owners__error.error
             .form-action
-              label#sponsors(for='') Band Sponsors
+              label#sponsors(for='') Band Sponsors(if any)
               br
-              textarea#band-sponsors.form-control.mb-3(name='bandsponsors' placeholder='Enter Band Sponsors' cols='30' rows='10')
+              textarea#band-sponsors.form-control.mb-3(name='bandsponsors' placeholder='Enter Band Sponsors' cols='30' rows='3')
             small#band__sponsor__error.error
             #button-form
               input#submit-btn(type='submit' name='submit-button' value='SUBMIT')

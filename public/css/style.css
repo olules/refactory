@@ -74,7 +74,106 @@ iframe:hover{
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
-
+.panel {
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  
+  }
+  .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem; 
+  
+  }
+    .panel-head .title {
+      font-size: 1.4rem;
+      text-transform: none;
+      font-weight: 300;
+      color: #475166;
+      margin: 0;
+      }
+  
+  .panel-body {
+    margin-bottom: 1rem;
+    }
+    
+  .action {
+  display: flex;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: space-around;
+  
+  }
+  
+  /* Delete Icon */
+  .remove{
+  font-size: 1.5rem; 
+  color: #ec5564; 
+  padding:8px;
+  margin-left:4px;
+  align-self: center;
+  }
+  
+  /* Delete Icon on Hover */
+  .remove:hover {
+    color: #c51627;
+  
+  }
+  
+  /* Update Icon */
+  .edit {
+  color: #f5ba45;
+  padding:5px;
+  align-self: center;
+  }
+  .edit:hover {
+    color: #c9890b; 
+  }
+  
+  /* Table Properties */
+  table {
+  width: 100%;
+  border-collapse: collapse; 
+  margin:20px 2px;
+  
+  }
+  
+  /* Border properties of table rows */
+  tr:not(:last-child) {
+  border-bottom: 1px solid #ebebee;
+  
+  }
+  
+  /* Table data and Table head properties */
+  th,
+  td {
+  padding: 0.6rem;
+  text-align: left;
+  font-size: 18px; 
+  border:1px solid rgba(220, 220, 220, 0.349);
+  }
+  
+  /* Table head color */
+  th {
+  color: #000000;
+  background-color: rgba(217, 235, 241, 0.815);
+  text-align: center;
+  }
+  
+  /* Table data color and font configurations */
+  td {
+  color: #475166;
+  font-weight:100;
+  
+  }
+  
+  /* Field color alternation in the table */
+  .zebra tr:nth-child(even) {
+  background-color: #f5f6f8;
+  
+  }
 
 
 

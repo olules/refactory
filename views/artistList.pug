@@ -2,7 +2,6 @@ extends layout
 block content
   .panel
     .panel-head
-      h6.title Artist List
     span.newArtist
       a(href='/artistinfo/list') Artists List
     #searchBtn.input-group
@@ -11,21 +10,22 @@ block content
       button#SBtn.btn.btn-primary(type='button')
         i.fa.fa-search 
     .panel-body
-      table.zebra
+      table.table.table-striped.table-bordered
         tbody
           tr
             th First name
             th Last name
             th Stage name
             th Artist ID
-            th Artist Email
-            th NIN
+            th Telephone
+            th Email Address
+            th Date of birth
             th District based in
-            th Date of Birth
-            th location
-            th number of albums 
-            th Number of songs
-            th picture 
+            th NIN
+            th Date of start
+            th Location
+            th Number of Albums 
+            th Number of Songs 
             th genre
           if artists.length 
           each artist in artists  
@@ -35,7 +35,6 @@ block content
               td  #{artist.stagename}
               td  #{artist.artistid}
               td  #{artist.telephonecontact} 
-              td  #{artist.twitterhandle}
               td  #{artist.artistemail}
               td  #{artist.artistdob} 
               td  #{artist.districtbasedin}
@@ -43,7 +42,7 @@ block content
               td  #{artist.dateofstart} 
               td  #{artist.location}
               td  #{artist.numberofalbums}
-              td  #{artist.numberofsongs} 
+              td  #{artist.numberofsongs}  
               td  #{artist.genre}
               
 

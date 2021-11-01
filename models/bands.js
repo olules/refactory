@@ -37,7 +37,7 @@ const bandSchema = new mongoose.Schema({
 
     },
     bandid:{
-        type: Date,
+        type: String,
         trim: true,
 
     },
@@ -64,7 +64,7 @@ const bandSchema = new mongoose.Schema({
 
     },
     telephonecontact:{
-        type: Number,
+        type: String,
         trim: true,
 
     },
