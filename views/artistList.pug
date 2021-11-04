@@ -5,10 +5,12 @@ block content
     span.newArtist
       a(href='/artistinfo/list') Artists List
     #searchBtn.input-group
-      .form-outline
-        input#form1.form-control(type='search' placeholder='search by name' name='artistName')
-      button#SBtn.btn.btn-primary(type='button')
-        i.fa.fa-search 
+      form.d-flex.search-artist(method='post' action='/artistinfo/list')
+          input.form-control.me-2(type='search' placeholder='Search for your artist' aria-label='Search' name='stagename')
+          button.btn.btn-outline-success(type='submit')
+            | Search
+
+  
     .panel-body
       table.table.table-striped.table-bordered
         tbody

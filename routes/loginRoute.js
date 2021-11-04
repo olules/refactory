@@ -1,19 +1,48 @@
 // Dependencies
-const express = require('express');
+const express = require("express");
+const artist = require("../models/artists");
+const band = require("../models/bands");
+const label = require("../models/labels");
+const passport = require("passport");
+const User = require("../models/User");
+const roles = require("./roles");
 const router = express.Router();
-const passport = require('passport');
-
 
 // Render Login page
-router.get('/', (req,res)=>{
-    res.render('login', {title:'Login Page'});
+router.get("/login", (req, res) => {
+  res.render("login", { title: "Login Page" });
 });
 
-//Redirect to Home Page if authenticated
-router.post('/', passport.authenticate('local', {failureRedirect: '/login'}), (req,res) =>{
-        req.session.user = req.user 
-        res.redirect('/home');  
-});
+//Redirect to specific pages if  user is authenticated
+router.post(
+  "/login",
+  passport.authenticate("local", { failureRedirect: "/login" }),
+  async (req, res) => {
+    req.session.user = req.user;
+    // Login logic for the different users of the system .
+    User.findOne({ email: req.body.email }).then((data) => {
+      // console.log(data);
+      if (data.role == "artist") {
+        res.redirect("/artistinfo/artistacc");
+      } else if (data.role == "label") {
+        res.redirect("/labelinfo/labelacc");
+      } else if (data.role == "band") {
+        res.redirect("/bandinfo/bandaccount");
+      } else if (data.role == "clerk") {
+        res.redirect("/clerkinfo/clerkacc");
+      } else {
+        res.send(" unauthorised UGAAMUX user. ");
+      }
+    });
+    router.get("/logout", (req, res) => {
+      req.session.destroy(() => {
+        res.redirect("/");
+      });
+    });
 
-// Export Login module
+    // Export Login module
+  }
+);
+
+
 module.exports = router;

@@ -1,0 +1,24 @@
+extends layout 
+block content   
+  title= `${title}`    
+  body
+    .row.p-s.pt-5.p-lg-0.pt-lg-5.d-flex.justify-content-center
+      .col-lg-6.jinx.text-light
+        .container.border.mb-0.align-items-center
+          h5.text-center.mt-3 Log in 
+              form(action="/login" method="POST" name="login" )
+                .row.container-mt-5.text-light
+                  .col-sm.p-5.m-5.text-start
+                    .form-action
+                      label#bandowner(for='email') Email
+                      br
+                      input#email.form-control.mb-3(type='text' placeholder="Input your email" name='email')
+                    small#email__error.error
+                    .form-action
+                      label#bandhome(for='password') Password
+                      br
+                      input#password1.form-control.mb-3(type='text' placeholder='Input password' name='password1')
+                    small#password1__error.error
+                    button.btn.btn-primary(type="submit") Login
+                  span#reg-link
+                    a(href="/login") Login

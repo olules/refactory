@@ -1,14 +1,28 @@
 const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
+const passportmongoose = require('passport-local-mongoose');
 
-// Creating a Database Schema for users
-const userSchema = new mongoose.Schema({
-  username: String,
-  role: String,
-  password: String,
+const UserSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  role: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
-// Setting the plugin to use passport
-userSchema.plugin(passportLocalMongoose);
+
+UserSchema.plugin(passportmongoose, {
+  username: 'email',
+});
 
 //Associating the schema with actual collection name
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('Users', UserSchema);

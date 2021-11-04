@@ -1,0 +1,37 @@
+extends layout 
+block content   
+  title= `${title}`    
+  body
+    .row.p-s.pt-5.p-lg-0.pt-lg-5.d-flex.justify-content-center
+      .col-lg-6.jinx.text-light
+        .container.border.mb-0.align-items-center
+          h5.text-center.mt-3 Sign Up
+              form(action="/signup" name="regForm" method="POST" onsubmit="return validate()")
+              .row.container-mt-5.text-light
+                .col-sm.p-5.m-5.text-start
+                  .form-action
+                    label(for='username') User Name
+                    br
+                    input#user-name.form-control.mb-3(type='text' placeholder='Input User Name' name='username')
+                  small#user__name__error.error
+                  .form-action
+                    label#bandowner(for='email') Email
+                    br
+                    input#email.form-control.mb-3(type='text' placeholder="Input your email" name='email')
+                  small#email__error.error
+                  .form-action
+                    label#bandhome(for='password1') Password
+                    br
+                    input#password1.form-control.mb-3(type='text' placeholder='Input password' name='password1')
+                  small#password1__error.error
+                  .form-action
+                    label#bandhome(for='password2') Confirm Password
+                    br
+                    input#password2.form-control.mb-3(type='text' placeholder='Input password again' name='password2')
+                  small#password2__error.error
+                  
+                  button.btn.btn-primary.logbt(type="submit") Register
+                span#reg-link
+                  a(href="/login") Login
+
+      

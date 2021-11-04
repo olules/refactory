@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passportmongoose = require('passport-local-mongoose');
 
 const artistSchema = new mongoose.Schema({
     firstname: {
@@ -76,5 +77,10 @@ const artistSchema = new mongoose.Schema({
         type: String
 
     }
+
 })
+artistSchema.plugin(passportmongoose, {
+    username: 'email',
+    
+});
 module.exports = mongoose.model('Artist', artistSchema)

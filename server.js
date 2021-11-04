@@ -3,6 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+const passportMongoose = require("passport-local-mongoose");
+const moment = require("moment");
+
 
 
 // Configure environment variable
@@ -15,7 +18,7 @@ const expressSession = require('express-session')({
 });
 
 // Import user model
-const RegUser = require('./models/User');
+const User = require('./models/User');
 // //Import Routes
 const Artists = require("./routes/artists");
 const afrigo = require("./routes/afrigo");
@@ -32,6 +35,8 @@ const natasha = require("./routes/natasha");
 const patrick = require("./routes/patrick");
 const qwela = require("./routes/qwela");
 const chenkobe = require("./routes/chenkobe");
+const signUpRoute = require("./routes/userRoutes");
+const loginRoute = require("./routes/loginRoute")
 
 
 // Instantiations
@@ -61,15 +66,17 @@ app.set('views','./views');
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
 
+
+
 // Initializing  passport module and connecting it to our session
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Passport configurations
-passport.use(RegUser.createStrategy());
-passport.serializeUser(RegUser.serializeUser());
-passport.deserializeUser(RegUser.deserializeUser());
+// Passport configurations (creating user's strategy)
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // middleware for serving static files
 app.use(express.static('public'));
@@ -85,7 +92,8 @@ app.use('/labelinfo',labels);
 app.use('/afrigo',afrigo);
 app.use('/qwela',qwela);
 // app.use('/home',homeRoute);
-// app.use('/login',loginRoute);
+app.use('/',loginRoute);
+app.use('/signup',signUpRoute);
 app.use('/denesi',denesi);
 app.use('/kavali',kavali);
 app.use('/chenkobe',chenkobe);

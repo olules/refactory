@@ -2,7 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const Artist = require("../models/artists");
-const multer = require("multer")
+const multer = require("multer");
+const User = require("../models/User");
+const passport = require("passport")
 
 //artists Routes
 
@@ -13,27 +15,35 @@ router.get("/artistreg", (req, res) => {
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-      cb(null, 'public/img');
+    cb(null, 'public/img');
   },
   filename: (req, file, cb) => {
-      cb(null, file.originalname);
+    cb(null, file.originalname);
   }
 });
 var upload = multer({ storage: storage })
 
 // Register artist information to the database
 
-router.post("/artistreg",upload.single("uploadpicture"), async (req, res) => {
+router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
   try {
     const artistReg = new Artist(req.body);
-    artistReg.uploadpicture = req.file.path
-    await artistReg.save().then(data => {
-      console.log(data)
-    }).catch(err => {
-      console.log(err)
-    })
-    console.log("Info posted");
-    res.redirect("/artistinfo/artistreg");
+    const user = new User(req.body);
+
+    artistReg.uploadpicture = req.file.path;
+    await artistReg.save();
+    await User.register(user, req.body.password, (err) => {
+      if (err) {
+        throw err;
+      }
+      // }).then(data => {
+      //   console.log(data)
+      // }).catch(err => {
+      //   console.log(err)
+      // })
+      console.log("Info posted");
+      res.redirect("/artistinfo/artistreg")
+    });
   } catch (err) {
     console.log(err);
     res.status(400).send("Error");
@@ -48,9 +58,22 @@ router.post("/artistreg",upload.single("uploadpicture"), async (req, res) => {
 //     res.status(400).send("Cannot find Artist");
 //   }
 // });
+//route to go to a particular artists database
+router.get("/artistacc", async (req, res) => {
+  if (req.session.user) {
+    try {
+      const user = await Artist.findone({ email: req.user.email });
+      res.render("artistacc", { artist: user });
+
+    } catch {
+      res.status(400).send("Artist not fould")
+    }
+  } else {
+    res.redirect("/login");
+  }
+});
 
 // Fetch artist information from the database
-
 router.get("/list", async (req, res) => {
   try {
     let artistDetails = await Artist.find();
@@ -60,6 +83,35 @@ router.get("/list", async (req, res) => {
     res.status(500).send("Cannot retrieve artist information");
   }
 });
+router.post("/list", async (req, res) => {
+  await Artist.find({ stagename: req.body.stagename }).then(data => {
+    if (data.length > 0) {
+      console.log(data);
+      res.render("artistList", {
+        artists: data
+      })
+    }
+    else {
+      Artist.find({}, function (err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+
+          console.log('Here');
+          res.render('artistList', {
+            user: data,
+            error: true
+          });
+
+        }
+      });
+
+    }
+  }).catch(error => {
+    console.log(error);
+  })
+
+})
 
 // update artist Information
 router.get("/update/:id", async (req, res) => {
