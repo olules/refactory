@@ -1,0 +1,45 @@
+extends layout 
+block content 
+ .container
+      .row
+        .col-lg-4.photo-div
+          img.img-fluid(src='/'+artist.pictureupload width = "400px" height = "600px" alt='artist photo')
+          .row
+            a.artistgenre Genre
+              br
+              | #{artist.genre} 
+            a.artistalbums Albums 
+              br
+              | #{artist.numberofalbums}  
+            a.artistsongs Songs
+              br
+              | #{artist.numberofsongs} 
+        .col-lg-7.artist-info
+          .row.moreinformation
+            h5 Personal Information
+            .col-lg-5.containerA
+              p First name
+              p Last name
+              p Stage name
+              p Telephone
+              p Twitter 
+              p Email
+              p Date of Birth
+              p District
+              p Date Music Began
+              p Location
+              p Gender
+          
+            .col-lg-5.containerB 
+          
+              p #{artist.firstName} 
+              p #{artist.lastName} 
+              p #{artist.stageName} 
+              p #{artist.telephone} 
+              p #{artist.twitter} 
+              p #{artist.email} 
+              p #{moment(artist.ArtistDOB).format('DD/MM/YYYY')} 
+              p #{artist.basedDistrict} 
+              p #{moment(artist.datestartedsing).format('DD/MM/YYYY')} 
+              p #{artist.Location} 
+              p #{artist.gender} 
