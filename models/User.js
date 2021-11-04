@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.plugin(passportmongoose, {
-  username: 'email',
+  usernameField: 'email',
 });
 
 //Associating the schema with actual collection name

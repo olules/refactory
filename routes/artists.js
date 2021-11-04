@@ -61,12 +61,14 @@ router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
 //route to go to a particular artists database
 router.get("/artistacc", async (req, res) => {
   if (req.session.user) {
+    // console.log(req.session.user)
     try {
-      const user = await Artist.findone({ email: req.user.email });
+      const user = await Artist.findOne({ email: req.user.email });
       res.render("artistacc", { artist: user });
+      
 
     } catch {
-      res.status(400).send("Artist not fould")
+      res.status(400).send("Artist not found")
     }
   } else {
     res.redirect("/login");
@@ -142,6 +144,22 @@ router.get("/delete/:id", async (req, res) => {
     res.redirect("back");
   } catch (err) {
     res.status(400).send("Error deleting artist from the DataBase");
+  }
+});
+// Route to  artist account.
+router.get('/artistacc', async (req, res) => {
+  if (req.session.user) {
+    console.log(req.body.email)
+    try {
+      const user = await Artist.findOne({ email: req.user.email });
+
+      res.render('artistacc', { artist: user });
+
+    } catch {
+      res.status(400).send('Artist not found');
+    }
+  } else {
+    res.redirect('/login');
   }
 });
 

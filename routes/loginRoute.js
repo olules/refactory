@@ -19,17 +19,18 @@ router.post(
   passport.authenticate("local", { failureRedirect: "/login" }),
   async (req, res) => {
     req.session.user = req.user;
+    
     // Login logic for the different users of the system .
     User.findOne({ email: req.body.email }).then((data) => {
       // console.log(data);
       if (data.role == "artist") {
         res.redirect("/artistinfo/artistacc");
       } else if (data.role == "label") {
-        res.redirect("/labelinfo/labelacc");
+        res.redirect("/");
       } else if (data.role == "band") {
-        res.redirect("/bandinfo/bandaccount");
+        res.redirect("/");
       } else if (data.role == "clerk") {
-        res.redirect("/clerkinfo/clerkacc");
+        res.redirect("/");
       } else {
         res.send(" unauthorised UGAAMUX user. ");
       }

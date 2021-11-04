@@ -38,7 +38,6 @@ const chenkobe = require("./routes/chenkobe");
 const signUpRoute = require("./routes/userRoutes");
 const loginRoute = require("./routes/loginRoute")
 
-
 // Instantiations
 const app = express();
 
@@ -61,6 +60,7 @@ mongoose.connection
 // Configuration for templating Engine
 app.set('view engine','pug');
 app.set('views','./views');
+app.locals.moment = moment;
 
 // Middle ware
 app.use(express.urlencoded({ extended: true }));
