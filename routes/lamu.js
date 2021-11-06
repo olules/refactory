@@ -8,9 +8,9 @@ router.get('/lamu',(req,res)=>{
 
 });
 
-router.post('/lamu', (req,res)=>{
-    res.render('lamu',{title:'Lamu'});
-});
+// router.post('/lamu', (req,res)=>{
+//     res.render('lamu',{title:'Lamu'});
+// });
 
 
 // Export Module

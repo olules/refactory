@@ -4,7 +4,7 @@ const router = express.Router();
 const Artist = require("../models/artists");
 const multer = require("multer");
 const User = require("../models/User");
-const passport = require("passport")
+const passport = require("passport");
 
 //artists Routes
 
@@ -15,17 +15,18 @@ router.get("/artistreg", (req, res) => {
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/img');
+    cb(null, "public/img");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
-  }
+  },
 });
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
 
 // Register artist information to the database
 
 router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
+  console.log(req.body);
   try {
     const artistReg = new Artist(req.body);
     const user = new User(req.body);
@@ -36,39 +37,24 @@ router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
       if (err) {
         throw err;
       }
-      // }).then(data => {
-      //   console.log(data)
-      // }).catch(err => {
-      //   console.log(err)
-      // })
       console.log("Info posted");
-      res.redirect("/artistinfo/artistreg")
+      res.redirect("/artistreg");
     });
   } catch (err) {
     console.log(err);
     res.status(400).send("Error");
   }
 });
-// //get an artist from the database
-// router.get("artistinfo/:id", async (req, res) => {
-//   try {
-//     const getArtist = await Artist.findOne({ _id: req.params.id });
-//     res.status(201).render("getArtist", { artist: getArtist });
-//   } catch (err) {
-//     res.status(400).send("Cannot find Artist");
-//   }
-// });
+
 //route to go to a particular artists database
 router.get("/artistacc", async (req, res) => {
   if (req.session.user) {
-    // console.log(req.session.user)
+    console.log(req.session.user);
     try {
       const user = await Artist.findOne({ email: req.user.email });
       res.render("artistacc", { artist: user });
-      
-
     } catch {
-      res.status(400).send("Artist not found")
+      res.status(400).send("Artist not found");
     }
   } else {
     res.redirect("/login");
@@ -85,41 +71,58 @@ router.get("/list", async (req, res) => {
     res.status(500).send("Cannot retrieve artist information");
   }
 });
+//for searching the database
 router.post("/list", async (req, res) => {
-  await Artist.find({ stagename: req.body.stagename }).then(data => {
-    if (data.length > 0) {
-      console.log(data);
-      res.render("artistList", {
-        artists: data
-      })
-    }
-    else {
-      Artist.find({}, function (err, data) {
-        if (err) {
-          console.log(err);
-        } else {
-
-          console.log('Here');
-          res.render('artistList', {
-            user: data,
-            error: true
-          });
-
-        }
-      });
-
-    }
-  }).catch(error => {
-    console.log(error);
-  })
-
-})
+  await Artist.find({ stagename: req.body.stagename })
+    .then((data) => {
+      if (data.length > 0) {
+        console.log(data);
+        res.render("artistList", {
+          artists: data,
+        });
+      } else {
+        Artist.find({}, function(err, data) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Here");
+            res.render("artistList", {
+              user: data,
+              error: true,
+            });
+          }
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+//go to artists page 
+router.get("/artist", async (req, res) => {
+  try {
+    const artists = await Artist.find({ });
+    res.status(201).render("artists", { artists: artists });
+  } catch (err) {
+    res.status(400).send("Cannot find Artist");
+  }
+});
 
 // update artist Information
 router.get("/update/:id", async (req, res) => {
   try {
     const updateArtist = await Artist.findOne({ _id: req.params.id });
     res.status(201).render("updateArtist", { artist: updateArtist });
+  } catch (err) {
+    res.status(400).send("Cannot find Artist");
+  }
+});
+
+// get particular artist Information
+router.get("/artist/:id", async (req, res) => {
+  try {
+    const findArtist = await Artist.findOne({ _id: req.params.id });
+    res.status(201).render("findArtist", { artist: findArtist });
   } catch (err) {
     res.status(400).send("Cannot find Artist");
   }
@@ -133,6 +136,7 @@ router.post("/update", async (req, res) => {
     res.redirect("/artist/list");
   } catch (err) {
     res.status(400).send("Error Updating the Artist");
+    console.log(err);
   }
 });
 
@@ -147,19 +151,18 @@ router.get("/delete/:id", async (req, res) => {
   }
 });
 // Route to  artist account.
-router.get('/artistacc', async (req, res) => {
+router.get("/artistacc", async (req, res) => {
   if (req.session.user) {
-    console.log(req.body.email)
+    console.log(req.body.email);
     try {
       const user = await Artist.findOne({ email: req.user.email });
 
-      res.render('artistacc', { artist: user });
-
+      res.render("artistacc", { artist: user });
     } catch {
-      res.status(400).send('Artist not found');
+      res.status(400).send("Artist not found");
     }
   } else {
-    res.redirect('/login');
+    res.redirect("/login");
   }
 });
 

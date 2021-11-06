@@ -38,10 +38,10 @@ block content
               td  #{artist.artistid}
               td  #{artist.telephonecontact} 
               td  #{artist.artistemail}
-              td  #{artist.artistdob} 
+              td  #{moment(artist.artistdob).format('DD/MM/YYYY')} 
               td  #{artist.districtbasedin}
               td  #{artist.nationalidnumber}
-              td  #{artist.dateofstart} 
+              td  #{moment(artist.dateofstart).format('DD/MM/YYYY')}
               td  #{artist.location}
               td  #{artist.numberofalbums}
               td  #{artist.numberofsongs}  

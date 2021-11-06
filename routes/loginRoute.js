@@ -1,11 +1,11 @@
 // Dependencies
 const express = require("express");
-const artist = require("../models/artists");
+const Artist = require("../models/artists");
 const band = require("../models/bands");
 const label = require("../models/labels");
 const passport = require("passport");
 const User = require("../models/User");
-const roles = require("./roles");
+const role = require("./roles");
 const router = express.Router();
 
 // Render Login page
@@ -24,7 +24,7 @@ router.post(
     User.findOne({ email: req.body.email }).then((data) => {
       // console.log(data);
       if (data.role == "artist") {
-        res.redirect("/artistinfo/artistacc");
+        res.redirect("/artistacc");
       } else if (data.role == "label") {
         res.redirect("/labelinfo/labelacc");
       } else if (data.role == "band") {

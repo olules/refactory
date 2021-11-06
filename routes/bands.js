@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Band = require("../models/bands");
 const multer = require("multer")
+const User = require("../models/User");
 
 //bands routes
 //Display band registration page when endpoint '/' is hit
@@ -33,18 +34,35 @@ router.post("/bandreg", upload.fields([{
       const bandReg = new Band(req.body);
       bandReg.bandicon = req.files.bandicon[0].path;
       bandReg.profilepicture = req.files.profilepicture[0].path;
-      await bandReg.save().then(data => {
-        console.log(data)
-      }).catch(err => {
-        console.log(err)
-      })
-      console.log("Info posted");
-      res.redirect("/bandinfo/bandreg");
+      await User.register(user, req.body.password, (err) => {
+        if (err) {
+          throw err;
+        }
+        console.log('Information as been posted to the database');
+        res.redirect("/bandinfo/bandreg");
+      });
     } catch (error) {
       console.log(error);
       res.status(400).send("Error");
     }
   });
+  //route to go to a particular bands database
+router.get("/bandacc", async (req, res) => {
+  if (req.session.user) {
+    // console.log(req.session.user)
+    try {
+      const user = await Band.findOne({ email: req.user.email });
+      res.render("bandacc", { band: user });
+      
+
+    } catch {
+      res.status(400).send("band not found")
+    }
+  } else {
+    res.redirect("/login");
+  }
+});
+
 
 //Fetch band information from the database
 
@@ -58,12 +76,12 @@ router.get("/list", async (req, res) => {
   }
 });
 
-//update artist information
+//update band information
 
 router.get("/update/:id", async (req, res) => {
   try {
     const updateBand = await Band.findOne({ _id: req.params.id });
-    res.status(201).render("updateArtist", { band: updateBand });
+    res.status(201).render("updateband", { band: updateBand });
   } catch (error) {
     res.status(400).send("Cannot find Band");
   }
@@ -75,11 +93,11 @@ router.post("/update", async (req, res) => {
     await Band.findOneAndUpdate({ _id: req.query.id }, req.body);
     res.redirect("/band/list");
   } catch (error) {
-    res.status(400).send("Error Updating the Artist");
+    res.status(400).send("Error Updating the band");
   }
 });
 
-//delete artist from the database
+//delete band from the database
 
 router.get("/delete/:id", async (req, res) => {
   try {

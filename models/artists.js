@@ -80,7 +80,7 @@ const artistSchema = new mongoose.Schema({
 
 })
 artistSchema.plugin(passportmongoose, {
-    username: 'email',
+    usernameField: 'email',
     
 });
 module.exports = mongoose.model('Artist', artistSchema)

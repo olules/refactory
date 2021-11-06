@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const passportmongoose = require('passport-local-mongoose');
 const bandSchema = new mongoose.Schema({
     bandname:{
         type: String,
@@ -21,7 +21,7 @@ const bandSchema = new mongoose.Schema({
         trim: true,
 
     },
-    bandemail:{
+    email:{
         type: String,
         trim: true,
 
@@ -91,5 +91,8 @@ const bandSchema = new mongoose.Schema({
         type: String
 
     }
+    
 })
+bandSchema.plugin(passportmongoose, {
+    usernameField: 'email',})
 module.exports =  mongoose.model('band', bandSchema)

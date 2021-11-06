@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const passportmongoose = require('passport-local-mongoose');
 const musicLabelsSchema = new mongoose.Schema({
     labelname: {
         type: String,
@@ -51,5 +51,8 @@ const musicLabelsSchema = new mongoose.Schema({
 
 
     }
-})
+});
+
+musicLabelsSchema.plugin(passportmongoose, {
+    username: 'email',})
 module.exports = mongoose.model('labels', musicLabelsSchema)

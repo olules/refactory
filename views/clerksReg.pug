@@ -1,0 +1,41 @@
+extends layout 
+block content 
+ body
+    .row.p-5.pt-5.p-lg-0.pt-lg-5.d-flex.mt-5.justify-content-center
+      .col-lg-6.jinx.text-light
+        .container.border.align-items-center
+          h5.text-center Sign up 
+              form(action="/clerksreg" method="POST" name="login" )
+                .row.container-mt-5.text-light
+                  .col-sm.p-5.m-5.text-start
+                    .form-action
+                      label#bandowner(for='firstname') First Name
+                      br
+                      input#email.form-control.mb-3(type='text' placeholder="Input your first name" name='firstname')
+                    small#firstname__error.error
+                    .form-action
+                      label#bandowner(for='lastname') Last Name
+                      br
+                      input#lastname.form-control.mb-3(type='text' placeholder="Input your last name" name='lastname')
+                    small#email__error.error
+                    .form-action
+                    label#userrole(for='') Role
+                    br
+                    select#roles.form-control.mb-3(name="role")
+                        option(value="default") Select a role 
+                        option(value="clerk") Clerk
+                    small#roles-error.error 
+                    
+                    .form-action
+                      label#bandowner(for='email') Email
+                      br
+                      input#email.form-control.mb-3(type='text' placeholder="Input your email" name='email')
+                    small#email__error.error
+                    .form-action
+                      label(for='password') Password
+                      br
+                      input#password.form-control.mb-3(type='password' placeholder='Input password' name='password')
+                    small#password__error.error
+                    button.btn.btn-primary(type="submit") Sign Up
+                  span#reg-link.mb-5
+                    a(href="/login") Login

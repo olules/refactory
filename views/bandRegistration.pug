@@ -51,6 +51,11 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               br
               input#band-id.form-control.mb-3(type='text' name='bandid' placeholder='Input Band ID')
             small#band__id__error.error
+            .form-action
+              label#password(for='') Password
+              br
+              input#userpassword.form-control(type='password' placeholder = "Create Password"  name='password')
+            small#passworderror.error
             
           .col-lg-4.border-end.p-5
             .form-action
@@ -66,13 +71,20 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
             .form-action
               label#contact(for='') Email 
               br
-              input#email-contact.form-control.mb-3(type='text' placeholder='Input Band email' name='bandemail')
+              input#email-contact.form-control.mb-3(type='text' placeholder='Input Band email' name='email')
             small#band__email__error.error
             .form-action
               label#band-crowns(for='') Band Crowns
               br
               input#band-crowns.form-control.mb-3(type='text' placeholder='Input Band Crowns' name='bandcrowns')
             small#band__crowns__error.error
+            .form-action
+              label#userrole(for='') Role
+              br
+              select#roles.form-control.mb-3(name="role")
+                option(value="default") Select a role 
+                option(value="band") Band
+            small#roles-error.error 
             .form-action
               label#albums(for='') Number of Albums
               br
@@ -102,7 +114,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
             .form-action
               label#otherowners(for='')  Other band owners(if any)
               br
-              textarea#otherbandowners.form-control(name='otherbandowners' placeholder='Enter Other band Owners' cols='30' rows='3')
+              textarea#otherbandowners.form-control.mb-3(name='otherbandowners' placeholder='Enter Other band Owners' cols='30' rows='3')
             small#other__band__owners__error.error
             .form-action
               label#sponsors(for='') Band Sponsors(if any)
@@ -110,7 +122,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               textarea#band-sponsors.form-control.mb-3(name='bandsponsors' placeholder='Enter Band Sponsors' cols='30' rows='3')
             small#band__sponsor__error.error
             #button-form
-              input#submit-btn(type='submit' name='submit-button' value='SUBMIT')
+              input#submit-btn.mb-3(type='submit' name='submit-button' value='SUBMIT')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
 //- script(src='/javascript/bandRegistration.js')
 footer.p-5.jinx.text-white.text-center.position-relative

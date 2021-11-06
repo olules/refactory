@@ -21,6 +21,7 @@ const expressSession = require('express-session')({
 const User = require('./models/User');
 // //Import Routes
 const Artists = require("./routes/artists");
+const Clerks = require("./routes/clerks")
 const afrigo = require("./routes/afrigo");
 const Bands = require("./routes/bands");
 const labels = require("./routes/labels");
@@ -36,7 +37,8 @@ const patrick = require("./routes/patrick");
 const qwela = require("./routes/qwela");
 const chenkobe = require("./routes/chenkobe");
 const signUpRoute = require("./routes/userRoutes");
-const loginRoute = require("./routes/loginRoute")
+const loginRoute = require("./routes/loginRoute");
+const clerks = require('./models/clerks');
 
 // Instantiations
 const app = express();
@@ -80,33 +82,34 @@ passport.deserializeUser(User.deserializeUser());
 
 // middleware for serving static files
 app.use(express.static('public'));
-app.use('/public/images',express.static(__dirname + '/public'));
+app.use('/public/img',express.static(__dirname + '/public/img'));
 
 
 
 
 //routes middleware
 app.use('/bandinfo',Bands);
-app.use('/artistinfo',Artists);
+app.use('/', Clerks)
+app.use('/',Artists);
 app.use('/labelinfo',labels);
 app.use('/afrigo',afrigo);
 app.use('/qwela',qwela);
 // app.use('/home',homeRoute);
 app.use('/',loginRoute);
 app.use('/signup',signUpRoute);
-app.use('/denesi',denesi);
-app.use('/kavali',kavali);
-app.use('/chenkobe',chenkobe);
-app.use('/janzi',janzi);
-app.use('/qwela',qwela);
-app.use('/lamu',lamu);
-app.use('/luswata',luswata);
-app.use('/janzi',janzi);
-app.use('/qwela',qwela);
-app.use('/patrick',patrick);
-app.use('/martin',martin);
-app.use('/natasha',natasha);
-app.use('/ivunga',ivunga);
+// app.use('/denesi',denesi);
+// app.use('/kavali',kavali);
+// app.use('/chenkobe',chenkobe);
+// app.use('/janzi',janzi);
+// app.use('/qwela',qwela);
+// app.use('/lamu',lamu);
+// app.use('/luswata',luswata);
+// app.use('/janzi',janzi);
+// app.use('/qwela',qwela);
+// app.use('/patrick',patrick);
+// app.use('/martin',martin);
+// app.use('/natasha',natasha);
+// app.use('/ivunga',ivunga);
 
 
 //Request time logger
