@@ -1,0 +1,83 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
+  title
+    | Clerk&apos;s dashboard
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  // --css3--
+  link(rel='stylesheet' href='/css/dashboard.css')
+  // SLIDER REVOLUTION 4.x CSS SETTINGS
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap' rel='stylesheet')
+  // google material icon
+  link(href='https://fonts.googleapis.com/css2?family=Material+Icons' rel='stylesheet')
+.wrapper
+  .body-overlay
+  // Sidebar
+  nav#sidebar
+    .sidebar-header
+      h3
+        span Ugaamux
+    ul.list-unstyled.components
+      li.active
+        a.dashboard(href='/dashboard')
+          i.material-icons dashboard
+          span Dashboard
+      .small-screen.navbar-display
+        li.d-lg-none.d-md-block.d-xl-none.d-sm-block
+          a(href='#')
+            i.material-icons person
+            span user
+        li.dropdown
+          a.dropdown-toggle(href='#pageSubmenu5' data-toggle='collapse' aria-expanded='false')
+            i.material-icons border_color
+            span forms
+          ul#pageSubmenu5.collapse.list-unstyled.menu
+            li
+              a(href='/artistinfo/artistreg') Artists 
+            li
+              a(href='/bandinfo/bandreg') Bands
+            li
+              a(href='/labelinfo/labelreg') Labels
+        li.dropdown
+          a.dropdown-toggle(href='#pageSubmenu6' data-toggle='collapse' aria-expanded='false')
+            i.material-icons grid_on
+            span tables
+          ul#pageSubmenu6.collapse.list-unstyled.menu
+            li
+              a(href='/artistinfo/list') Artists
+            li
+              a(href='/bandinfo/list') Bands
+            li
+              a(href='/labelinfo/list') Labels
+        li.dropdown
+          a.dropdown-toggle(href='#pageSubmenu7' data-toggle='collapse' aria-expanded='false')
+            i.material-icons content_copy
+            span Pages
+          ul#pageSubmenu7.collapse.list-unstyled.menu
+            li
+              a(href='/artists') Artists
+            li
+              a(href='/bands') Bands
+            li
+              a(href='/labels') Labels
+// Optional JavaScript
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='js/jquery-3.3.1.slim.min.js')
+script(src='js/popper.min.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery-3.3.1.min.js')
+script(type='text/javascript').
+  $(document).ready(function () {
+  $('#sidebarCollapse').on('click', function () {
+  $('#sidebar').toggleClass('active');
+  $('#content').toggleClass('active');
+  });
+  $('.more-button,.body-overlay').on('click', function () {
+  $('#sidebar,.body-overlay').toggleClass('show-nav');
+  });
+  });

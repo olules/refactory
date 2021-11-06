@@ -26,11 +26,11 @@ router.post(
       if (data.role == "artist") {
         res.redirect("/artistinfo/artistacc");
       } else if (data.role == "label") {
-        res.redirect("/");
+        res.redirect("/labelinfo/labelacc");
       } else if (data.role == "band") {
-        res.redirect("/");
+        res.redirect("/bandinfo/bandacc");
       } else if (data.role == "clerk") {
-        res.redirect("/");
+        res.redirect("/dashboard");
       } else {
         res.send(" unauthorised UGAAMUX user. ");
       }
