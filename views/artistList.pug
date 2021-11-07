@@ -20,9 +20,7 @@ block content
             th Stage name
             th Artist ID
             th Telephone
-            th Email Address
             th Date of birth
-            th District based in
             th NIN
             th Date of start
             th Location
@@ -37,9 +35,7 @@ block content
               td  #{artist.stagename}
               td  #{artist.artistid}
               td  #{artist.telephonecontact} 
-              td  #{artist.artistemail}
               td  #{moment(artist.artistdob).format('DD/MM/YYYY')} 
-              td  #{artist.districtbasedin}
               td  #{artist.nationalidnumber}
               td  #{moment(artist.dateofstart).format('DD/MM/YYYY')}
               td  #{artist.location}
@@ -49,7 +45,7 @@ block content
               
 
               td(style="display:flex; justify-content:center; align-items:center;")
-                a.edit(href='/artist/update/'+artist._id)
-                  ion-icon(name='create-outline')
-                a.remove(href='/artist/delete/'+artist._id)
-                  ion-icon(name='trash-outline')
+                  a.edit(href='/artistinfo/update/'+artist._id)
+                    p(name='create-outline') Update
+                  a.remove(href='/artistinfo/delete/'+artist._id)
+                    p(name='trash-outline') Delete

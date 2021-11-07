@@ -10,12 +10,13 @@ block content
               span.text-warning  #{artist.stagename}
             p.lead.my-4
               | Names : #{artist.stagename}
-              | Born: #{artist.artistdob}
+              br
+              | Born: #{moment(artist.artistdob).format("DD/MM/YYYY")}
               br
               | Number of Albums : #{artist.numberofalbums}
               br
               | Number of Songs: #{artist.numberofsongs}
               br
-              | genre: #{artist.genre}
+              | Genre: #{artist.genre}
           img.img-fluid.w-50.mb-5.d-none.d-sm-block(src='/'+artist.uploadpicture width = "400px" height = "600px" alt='artist photo')
       

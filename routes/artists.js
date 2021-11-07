@@ -107,6 +107,17 @@ router.get("/artists", async (req, res) => {
     res.status(400).send("Cannot find Artist");
   }
 });
+// get particular artist Information
+router.get("/artist/:stagename", async (req, res) => {
+  try {
+    const findArtist = await Artist.findOne({
+      stagename: req.params.stagename,
+    });
+    res.status(201).render("findartist", { artist: findArtist });
+  } catch (err) {
+    res.status(400).send("Cannot find Artist");
+  }
+});
 
 // update artist Information
 router.get("/update/:id", async (req, res) => {
@@ -117,23 +128,12 @@ router.get("/update/:id", async (req, res) => {
     res.status(400).send("Cannot find Artist");
   }
 });
-
-// get particular artist Information
-router.get("/artist/:id", async (req, res) => {
-  try {
-    const findArtist = await Artist.findOne({ _id: req.params.id });
-    res.status(201).render("findArtist", { artist: findArtist });
-  } catch (err) {
-    res.status(400).send("Cannot find Artist");
-  }
-});
-
 // save updated artist information
 
-router.post("/update", async (req, res) => {
+router.post("/update/:id", async (req, res) => {
   try {
-    await Artist.findOneAndUpdate({ _id: req.query.id }, req.body);
-    res.redirect("/artist/list");
+    await Artist.findOneAndUpdate({ _id: req.params.id }, req.body);
+    res.redirect("/artistinfo/list");
   } catch (err) {
     res.status(400).send("Error Updating the Artist");
     console.log(err);
@@ -145,24 +145,9 @@ router.post("/update", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
   try {
     await Artist.findByIdAndDelete({ _id: req.params.id });
-    res.redirect("back");
+    res.redirect("/artistinfo/list");
   } catch (err) {
     res.status(400).send("Error deleting artist from the DataBase");
-  }
-});
-// Route to  artist account.
-router.get("/artistacc", async (req, res) => {
-  if (req.session.user) {
-    console.log(req.body.email);
-    try {
-      const user = await Artist.findOne({ email: req.user.email });
-
-      res.render("artistacc", { artist: user });
-    } catch {
-      res.status(400).send("Artist not found");
-    }
-  } else {
-    res.redirect("/login");
   }
 });
 

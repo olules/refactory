@@ -27,15 +27,15 @@ section.p-5.mt-5.jinx(id='#Solo__artists')
     h2.text-center.heading Solo Artists
     p.lead.text-center.text-white.mb-5
       | Music Solo Artists from the pearl
-    .row.g-4
+    .row
       if artists.length 
       each artist in artists
         .col-md-6.col-lg-3
-          .card.special__card
+          .card.special__card.mb-5
             .card-body.text-center
-              a(href='/artist/'+artist._id)
-                img.img-fluid.mb-3(src='/'+artist.uploadpicture alt='')
-              h3.card-title.mb-3.text-light #{artist.stagename}
+              a(href='/artistinfo/artist/'+artist.stagename)
+                img.img-fluid.mb-5(src='/'+artist.uploadpicture alt='')
+              
       
 footer.p-5.text-white.text-center.position-relative
   .container
