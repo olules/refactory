@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const Band = require("../models/bands");
-const multer = require("multer")
+const multer = require("multer");
 const User = require("../models/User");
 
 //bands routes
@@ -12,57 +12,72 @@ router.get("/bandreg", (req, res) => {
 });
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/img');
+    cb(null, "public/img");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
-  }
+  },
 });
-var upload = multer({ storage })
+var upload = multer({ storage });
 
 //Register band information to the datatbase
 
-router.post("/bandreg", upload.fields([{
-  name: 'bandicon', maxCount: 1
-}, {
-  name: 'profilepicture', maxCount: 1
-}])
-  , async (req, res) => {
-
+router.post(
+  "/bandreg",
+  upload.fields([
+    {
+      name: "bandicon",
+      maxCount: 1,
+    },
+    {
+      name: "profilepicture",
+      maxCount: 1,
+    },
+  ]),
+  async (req, res) => {
     try {
-      console.log(req.body)
+      console.log(req.body);
       const bandReg = new Band(req.body);
+      const user = new User(req.body);
       bandReg.bandicon = req.files.bandicon[0].path;
       bandReg.profilepicture = req.files.profilepicture[0].path;
+      await bandReg.save();
       await User.register(user, req.body.password, (err) => {
         if (err) {
           throw err;
         }
-        console.log('Information as been posted to the database');
+        console.log("Information as been posted to the database");
         res.redirect("/bandinfo/bandreg");
       });
     } catch (error) {
       console.log(error);
       res.status(400).send("Error");
     }
-  });
-  //route to go to a particular bands database
+  }
+);
+//route to go to a particular bands database
 router.get("/bandacc", async (req, res) => {
   if (req.session.user) {
     // console.log(req.session.user)
     try {
       const user = await Band.findOne({ email: req.user.email });
       res.render("bandacc", { band: user });
-      
-
     } catch {
-      res.status(400).send("band not found")
+      res.status(400).send("band not found");
     }
   } else {
     res.redirect("/login");
   }
 });
-
+// get particular band Information
+router.get("/band/:id", async (req, res) => {
+  try {
+    const findBand = await Band.findOne({ _id: req.params.id });
+    res.status(201).render("findBand", { band: findBand });
+  } catch (err) {
+    res.status(400).send("Cannot find band");
+  }
+});
 
 //Fetch band information from the database
 

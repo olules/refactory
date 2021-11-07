@@ -1,0 +1,40 @@
+extends layout 
+block content 
+ .container
+      .row
+        .col-lg-4.photo-div
+          img.img-fluid(src='/'+band.profilepicture width = "400px" height = "600px" alt='band photo')
+          .row
+            a.bandgenre Band Nmae
+              br
+              | #{band.genre} 
+            a.bandalbums Albums 
+              br
+              | #{band.bandalbums}  
+            a.bandsongs Songs
+              br
+              | #{band.bandsongs} 
+        .col-lg-7.band-info
+          .row.moreinformation
+            h5 Band Information
+            .col-lg-5.containerA
+              p Band name
+              p Band Owner
+              p Band's Number of Albums
+              p Band's Crowns
+              p Email
+              p Date of Start
+              p District
+              p Band slogan
+             
+          
+            .col-lg-5.containerB 
+          
+              p #{band.bandname} 
+              p #{band.bandowner} 
+              p #{band.bandalbums} 
+              p #{band.bandcrowns} 
+              p #{band.email} 
+              p #{moment(band.dateofformation).format('DD/MM/YYYY')} 
+              p #{band.bandhome}  
+              p #{band.bandslogan} 

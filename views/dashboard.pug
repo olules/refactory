@@ -1,83 +1,47 @@
-doctype html
-head
-  // Required meta tags
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
-  title
-    | Clerk&apos;s dashboard
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
-  
-  link(rel='stylesheet' href='/css/dashboard.css')
-  // SLIDER REVOLUTION 4.x CSS SETTINGS
-  link(rel='preconnect' href='https://fonts.googleapis.com')
-  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
-  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap' rel='stylesheet')
-  // google material icon
-  link(href='https://fonts.googleapis.com/css2?family=Material+Icons' rel='stylesheet')
-.wrapper
-  .body-overlay
-  // Sidebar
-  nav#sidebar
-    .sidebar-header
-      h3
-        span Ugaamux
-    ul.list-unstyled.components
-      li.active
-        a.dashboard(href='/dashboard')
-          i.material-icons dashboard
-          span Dashboard
-      .small-screen.navbar-display
-        li.d-lg-none.d-md-block.d-xl-none.d-sm-block
-          a(href='#')
-            i.material-icons person
-            span user
-        li.dropdown
-          a.dropdown-toggle(href='#pageSubmenu5' data-toggle='collapse' aria-expanded='false')
-            i.material-icons border_color
-            span forms
-          ul#pageSubmenu5.collapse.list-unstyled.menu
-            li
-              a(href='/artistinfo/artistreg') Artists 
-            li
-              a(href='/bandinfo/bandreg') Bands
-            li
-              a(href='/labelinfo/labelreg') Labels
-        li.dropdown
-          a.dropdown-toggle(href='#pageSubmenu6' data-toggle='collapse' aria-expanded='false')
-            i.material-icons grid_on
-            span tables
-          ul#pageSubmenu6.collapse.list-unstyled.menu
-            li
-              a(href='/artistinfo/list') Artists
-            li
-              a(href='/bandinfo/list') Bands
-            li
-              a(href='/labelinfo/list') Labels
-        li.dropdown
-          a.dropdown-toggle(href='#pageSubmenu7' data-toggle='collapse' aria-expanded='false')
-            i.material-icons content_copy
-            span Pages
-          ul#pageSubmenu7.collapse.list-unstyled.menu
-            li
-              a(href='/artists') Artists
-            li
-              a(href='/bands') Bands
-            li
-              a(href='/labels') Labels
-// Optional JavaScript
-// jQuery first, then Popper.js, then Bootstrap JS
-script(src='js/jquery-3.3.1.slim.min.js')
-script(src='js/popper.min.js')
-script(src='js/bootstrap.min.js')
-script(src='js/jquery-3.3.1.min.js')
-script(type='text/javascript').
-  $(document).ready(function () {
-  $('#sidebarCollapse').on('click', function () {
-  $('#sidebar').toggleClass('active');
-  $('#content').toggleClass('active');
-  });
-  $('.more-button,.body-overlay').on('click', function () {
-  $('#sidebar,.body-overlay').toggleClass('show-nav');
-  });
-  });
+extends layout 
+block content 
+  .row.bg-light.p-5.m-5
+    .container-fluid.mt-5.pt-5.col-md
+      .row.flex-nowrap
+        .col-auto.col-md-3.col-xl-2.px-sm-2.px-5.bg-dark
+          .d-flex.flex-column.align-items-center.align-items-sm-start.px-5.pt-2.text-white.min-vh-100
+            a.d-flex.align-items-center.pb-3.mb-md-0.me-md-auto.text-white.text-decoration-none(href='/')
+              span.fs-5.d-none.d-sm-inline Clerks' Dashboard
+            ul#menu.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start
+              li.nav-item
+                a.nav-link.align-middle.px-0(href='/')
+                  i.fs-4.bi-house
+                  span.ms-1.d-none.d-sm-inline UGAAMUX
+              li
+                a.nav-link.px-0.align-middle(href='#submenu1' data-bs-toggle='collapse')
+                  i.fs-4.bi-speedometer2
+                  span.ms-1.d-none.d-sm-inline forms
+                ul#submenu1.collapse.show.nav.flex-column.ms-1(data-bs-parent='#menu')
+                  li.w-100
+                    a.nav-link.px-0(href='/artistreg')
+                      span.d-none.d-sm-inline Artists' registration form
+                      
+                  li
+                    a.nav-link.px-0(href='/bandinfo/bandreg')
+                      span.d-none.d-sm-inline Bands' registration form
+                  li
+                    a.nav-link.px-0(href='/labelinfo/list')
+                      span.d-none.d-sm-inline Labels' registration form
+                      
+              li
+                a.nav-link.px-0.align-middle(href='#')
+                  i.fs-4.bi-table
+                  span.ms-1.d-none.d-sm-inline Tables
+                  ul#submenu1.collapse.show.nav.flex-column.ms-1(data-bs-parent='#menu')
+                  li.w-100
+                    a.nav-link.px-0(href='/list')
+                      span.d-none.d-sm-inline Artists' List
+                      
+                  li
+                    a.nav-link.px-0(href='/bandinfo/list')
+                      span.d-none.d-sm-inline Bands' registration list
+                  li
+                    a.nav-link.px-0(href='/labelinfo/list')
+                      span.d-none.d-sm-inline Labels' registration list
+              
+            

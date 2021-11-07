@@ -8,7 +8,7 @@ const User = require('../models/User');
 
 //new user signup page display
 router.get('/',(req,res)=>{
-    res.render('userRegistration',{title:'New User Registration'})
+    res.render('clerksReg',{title:'New Clerk Registration'})
 });
 
 //New user signup
