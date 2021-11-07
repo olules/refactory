@@ -38,7 +38,7 @@ router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
         throw err;
       }
       console.log("Info posted");
-      res.redirect("/artistreg");
+      res.redirect("/artistinfo/artistreg");
     });
   } catch (err) {
     console.log(err);
@@ -98,10 +98,10 @@ router.post("/list", async (req, res) => {
       console.log(error);
     });
 });
-//go to artists page 
-router.get("/artist", async (req, res) => {
+//go to artists page
+router.get("/artists", async (req, res) => {
   try {
-    const artists = await Artist.find({ });
+    const artists = await Artist.find({});
     res.status(201).render("artists", { artists: artists });
   } catch (err) {
     res.status(400).send("Cannot find Artist");

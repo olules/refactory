@@ -1,0 +1,35 @@
+extends layout 
+block content 
+ .container
+      .row.text-light
+        .col-lg-4.photo-div
+          img.img-fluid(src='/'+label.profilepicture width = "400px" height = "600px" alt='label photo')
+          .row
+            a.labelgenre label Name
+              br
+              | #{label.labelname} 
+            a.labelalbums Artists Managed 
+              br
+              | #{label.artistsmanaged}  
+            a.labelsongs Label home
+              br
+              | #{label.labelhome} 
+        .col-lg-7.label-info
+          .row.moreinformation
+            h5 label Information
+            .col-lg-5.containerA
+              p label name
+              p label Owner
+              p label home
+              p label sponsors
+              p Date of formation
+              p Number of members
+              p Artists Managed
+            .col-lg-5.containerB 
+              p #{label.labelname} 
+              p #{label.labelowner} 
+              p #{label.labelhome} 
+              p #{label.labelsponsors} 
+              p #{moment(label.dateofformation).format('DD/MM/YYYY')} 
+              p #{label.numberofmembers}  
+              p #{label.artistsmanaged} 

@@ -77,7 +77,7 @@ app.use('/public/img',express.static(__dirname + '/public/img'));
 //routes middleware
 app.use('/bandinfo',Bands);
 app.use('/', Clerks)
-app.use('/',Artists);
+app.use('/artistinfo',Artists);
 app.use('/labelinfo',labels);
 app.use('/',loginRoute);
 app.use('/signup',signUpRoute);

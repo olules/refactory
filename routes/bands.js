@@ -78,6 +78,42 @@ router.get("/band/:id", async (req, res) => {
     res.status(400).send("Cannot find band");
   }
 });
+//for searching the database
+router.post("/list", async (req, res) => {
+  await Band.find({ bandname: req.body.bandname })
+    .then((data) => {
+      if (data.length > 0) {
+        console.log(data);
+        res.render("bandList", {
+          bands: data,
+        });
+      } else {
+        Band.find({}, function(err, data) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Here");
+            res.render("bandList", {
+              user: data,
+              error: true,
+            });
+          }
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+//go to bands page
+router.get("/bands", async (req, res) => {
+  try {
+    const bands = await Band.find({});
+    res.status(201).render("bands", { bands: bands });
+  } catch (err) {
+    res.status(400).send("Cannot find band");
+  }
+});
 
 //Fetch band information from the database
 

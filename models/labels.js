@@ -54,5 +54,5 @@ const musicLabelsSchema = new mongoose.Schema({
 });
 
 musicLabelsSchema.plugin(passportmongoose, {
-    username: 'email',})
+    usernameField: 'email',})
 module.exports = mongoose.model('labels', musicLabelsSchema)

@@ -1,0 +1,21 @@
+extends layout
+block content
+  title= `${title}`
+  body
+    section.jinx.text-light.p-5.p-lg-0.pt-lg-5.mt-5.mb-5.text-center.text-sm-start
+      .container
+        .d-sm-flex.align-items-center.justify-content-between
+          div
+            h1
+              span.text-warning  #{label.labelname}
+            p.lead.my-4
+              | Names : #{label.labelname}
+              | Date of formation: #{moment(label.dateofformation).format('DD/MM/YY')}
+              br
+              | Number of members : #{label.numberofmembers}
+              br
+              | Artists Managed: #{label.artistsmanaged}
+              br
+              | genre: #{label.genre}
+          img.img-fluid.w-50.mb-5.d-none.d-sm-block(src='/'+label.profilepicture width = "400px" height = "600px" alt='label photo')
+      
