@@ -46,6 +46,6 @@ block content
 
               td(style="display:flex; justify-content:center; align-items:center;")
                   a.edit(href='/artistinfo/update/'+artist._id)
-                    p(name='create-outline') Update
+                    button.btn.btn-info.text-light(type='button') Update
                   a.remove(href='/artistinfo/delete/'+artist._id)
-                    p(name='trash-outline') Delete
+                    button.btn.btn-danger(type='button') Delete

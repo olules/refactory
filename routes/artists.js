@@ -145,9 +145,9 @@ router.post("/update/:id", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
   try {
     await Artist.findByIdAndDelete({ _id: req.params.id });
-    res.redirect("/artistinfo/list");
+    res.redirect("artistinfo/list");
   } catch (err) {
-    res.status(400).send("Error deleting artist from the DataBase");
+    res.status(500).send("Error, Unable to delete Artist from the DataBase");
   }
 });
 
