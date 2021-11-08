@@ -1,0 +1,28 @@
+extends layout 
+block content 
+    title= `${title}`    
+    body
+        .row.p-s.pt-5.p-lg-0.pt-lg-5.d-flex.justify-content-center
+            .col-lg-6.jinx.text-light
+                .container.border.mb-0.align-items-center
+                h5.text-center.mt-3 UPDATE
+                    form(action="/labelinfo/update/"+label._id  method="POST" name="label__info__update" )
+                        .row.container-mt-5.text-light
+                            .col-sm.p-5.m-5.text-start
+                                .form-action.mb-3
+                                    label#profile-pic(for='')  Profile Picture 
+                                    br
+                                    input#profile-photo.form-control(type='file' name='profilepicture' value=label.profilepicture)
+                                small#profile__picture__error.error
+                                .form-action
+                                    label#sponsors(for='') Artists Managed
+                                    br
+                                    textarea#artists-managed.form-control.mb-3(name='artistsmanaged' placeholder='Input artists managed' value=label.artistsmanaged cols='20' rows='3')
+                                small#label__artists__error.error
+                                
+                                .form-action.mb-3
+                                    label#bandowner(for='email') Email
+                                    br
+                                    input#email.form-control.mb-3(type='text' placeholder="Input your email" value=label.email name='email')
+                                small#email__error.error
+                                button.btn.btn-primary(type="submit") UPDATE

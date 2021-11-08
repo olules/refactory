@@ -4,22 +4,26 @@ const musicLabelsSchema = new mongoose.Schema({
     labelname: {
         type: String,
         trim: true,
+        required: true
 
     },
     labelowner: {
         type: String,
         trim: true,
+        required: true
 
     },
 
     labelhome: {
         type: String,
         trim: true,
+        required: true
 
     },
     labelicon: {
         type: String,
         trim: true,
+        required: true
 
     },
 
@@ -27,27 +31,34 @@ const musicLabelsSchema = new mongoose.Schema({
     labelsponsors: {
         type: String,
         trim: true,
+        required: false
 
+    },
+    labelslogan:{
+        type: String,
+        trim: true,
+        required: false
     },
 
 
     dateofformation: {
         type: Date,
         trim: true,
+        required: true
 
     },
     numberofmembers: {
-        type: String,
-        trim: true,
+        type: Number,
 
     },
     artistsmanaged: {
-        data: Buffer,
-        type: String
+        type: String,
+        required: true
 
     },
     profilepicture: {
-        type: String
+        type: String,
+        required: true
 
 
     }

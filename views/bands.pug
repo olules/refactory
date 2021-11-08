@@ -1,60 +1,17 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
-  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
-  script(src='')
-  link(rel='stylesheet' href='style.css')
-  title Bands
-nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
-  .container
-    a#navbar__logo.navbar-brand(href='/bands') UGAAMUX
-    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navmenu')
-      span.navbar-toggler-icon
-    #navmenu.collapse.navbar-collapse
-      ul.navbar-nav.ms-auto
-        li.nav-item
-          a.nav-link.text-warning(href='/Solo__artists') Solo Artists
-        li.nav-item
-          a.nav-link.text-warning(href='/Music__bands') Music Bands
-        li.nav-item
-          a.nav-link.text-warning(href='/Performing__artists') Others
-section.p-5.jinx
-  #Music__bands.container
-    h2.text-center.heading Music Bands
-    p.lead.text-center.text-white.mb-5
-      | Music bands from the pearl
-    .row.text-center.g-4
-      .col-md
-        .card.special__card.text-light
-          .card-body.text-center
-            a(href='janzi')
-              img.img-fluid.mb-3(src='img/janzi.png' alt='')
-            h3.card-title.mb-3 Janzi Band
-      .col-md
-        .card.special__card.text-light
-          .card-body.text-center
-            a(href='ivunga.html')
-              img.img-fluid.mb-3(src='img/ivunga.png' alt='')
-            h3.card-title.mb-3 Ivunga Band
-      .col-md
-        .card.special__card.text-light
-          .card-body.text-center
-            a(href='afrigo')
-              img.img-fluid.mb-3(src='img/afrigo.png' alt='')
-            h3.card-title.mb-3 Afrigo Band
-      .col-md
-        .card.special__card.text-light
-          .card-body.text-center
-            a(href='qwela.html')
-              img.img-fluid.mb-3(src='img/Qwela.png' alt='')
-            h3.card-title.mb-3 Qwela Band
-footer.p-5.text-white.text-center.position-relative
-  .container
-    p.lead Copyright &copy; 2021 Ugaamux
-    a.position-absolute.bottom-0.end-0.p-5(href='#')
-      i.bi.bi-arrow-up-circle.h1
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous')
+extends layout 
+block content
+  section.p-5.jinx
+    .container
+      h2.text-center.heading Music Bands
+      p.lead.text-center.text-white.mb-5
+        | Bands from the pearl
+      .row.text-center.g-4
+        if bands.length 
+        each band in bands
+          .col-md-6.col-lg-3
+            .card.special__card.text-light
+              .card-body.text-center
+                a(href='/bandinfo/band/'+band.bandname)
+                  img.img-fluid.mb-3(src='/'+band.profilepicture alt='Band profile')
+              
+        

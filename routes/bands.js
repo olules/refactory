@@ -70,9 +70,9 @@ router.get("/bandacc", async (req, res) => {
   }
 });
 // get particular band Information
-router.get("/band/:id", async (req, res) => {
+router.get("/band/:bandname", async (req, res) => {
   try {
-    const findBand = await Band.findOne({ _id: req.params.id });
+    const findBand = await Band.findOne({ bandname: req.params.bandname });
     res.status(201).render("findBand", { band: findBand });
   } catch (err) {
     res.status(400).send("Cannot find band");

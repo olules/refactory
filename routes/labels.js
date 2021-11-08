@@ -106,9 +106,9 @@ router.get("/labelacc", async (req, res) => {
   }
 });
 // get particular label Information
-router.get("/label/:id", async (req, res) => {
+router.get("/label/:labelname", async (req, res) => {
   try {
-    const findlabel = await Label.findOne({ _id: req.params.id });
+    const findlabel = await Label.findOne({ labelname: req.params.labelname });
     res.status(201).render("findlabel", { label: findlabel });
   } catch (err) {
     res.status(400).send("Cannot find label");
@@ -139,10 +139,10 @@ router.get("/update/:id", async (req, res) => {
 });
 
 //save updated label information
-router.post("/update", async (req, res) => {
+router.post("/update/:id", async (req, res) => {
   try {
-    await Label.findOneAndUpdate({ _id: req.query.id }, req.body);
-    res.redirect("/label/list");
+    await Label.findOneAndUpdate({ _id: req.params.id }, req.body);
+    res.redirect("/labelinfo/list");
   } catch (error) {
     res.status(400).send("Error Updating the Label");
   }

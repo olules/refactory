@@ -10,12 +10,9 @@ block content
               span.text-warning  #{label.labelname}
             p.lead.my-4
               | Names : #{label.labelname}
+              br
               | Date of formation: #{moment(label.dateofformation).format('DD/MM/YY')}
               br
-              | Number of members : #{label.numberofmembers}
-              br
               | Artists Managed: #{label.artistsmanaged}
-              br
-              | genre: #{label.genre}
           img.img-fluid.w-50.mb-5.d-none.d-sm-block(src='/'+label.profilepicture width = "400px" height = "600px" alt='label photo')
       

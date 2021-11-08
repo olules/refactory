@@ -11,11 +11,21 @@ head
 body
     nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
         .container
-            a#navbar__logo.navbar-brand(href='#') UGAAMUX    
+            a#navbar__logo.navbar-brand(href='/') UGAAMUX   
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navmenu')
+              span.navbar-toggler-icon
+            #navmenu.collapse.navbar-collapse
+              ul.navbar-nav.ms-auto
+                li.nav-item
+                  a.nav-link.text-warning(href='/artistinfo/artists') Solo Artists
+                li.nav-item
+                  a.nav-link.text-warning(href='/bandinfo/bands') Music Bands
+                li.nav-item
+                  a.nav-link.text-warning(href='/labelinfo/labels')  Music Labels
     main.content
     block content
 
-footer.p-5.jinx.text-white.text-center.navbar-fixed-bottom
+footer.p-5.jinx.text-white.text-center.fixed-bottom
   .container
     p.lead Copyright &copy; 2021 Ugaamux
     a.position-absolute.bottom-0.end-0.p-5(href='#')

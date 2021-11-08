@@ -1,98 +1,84 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
-  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
-  link(rel='stylesheet' href='/css/style.css')
-  title MUSIC LABELS REGISTRATION FORM
-nav.navbar.navbar-expand-lg.bg-dark.jinx.py-3.fixed-top
-  .container
-    a#navbar__logo.navbar-brand(href='#') UGAAMUX
-.row.m-5.p-5.p-lg-0.pt-lg-5.align-items-center.text-light.jinx
-  .col-md.p-5.text-light
-    .container.jinx.align-items-center
-      h2.text-center.mt-0.text-light
-        | Label&apos;s Registration form
-      form#form-id(name='labelRegistrationForm' method='POST' action='/labelinfo/labelreg'  enctype="multipart/form-data")
-        .row.mt-5.text-light
-          .col-lg-6.border-end.p-5
-            .form-action
-              label#labelname(for='') Label Name
-              br
-              input#label-name.form-control.mb-3(type='text' placeholder='Input label Name' name='labelname')
-            small#label__name__error.error
-            .form-action
-              label#labelowner(for='') Label Owner
-              br
-              input#label-owner.form-control.mb-3(type='text' placeholder="Input the label owner's name" name='labelowner')
-            small#label__owner__error.error
-            .form-action
-              label#labelhome(for='') Label Home
-              br
-              input#label-home.form-control.mb-3(type='text' placeholder='Input label Home' name='labelhome')
-            small#label__home__error.error
-            .form-action
-              label#labelmembers(for='') Number of Members
-              br
-              input#label-numbers.form-control.mb-3(type='number' placeholder='Input number of label members' name='labelnumberofmembers')
-            small#label__Number__of__members__error.error
-             .form-action
-              label#date-of-formation(for='') Date of Formation
-              br
-              input#date-of-formation.form-control.mb-3(type='date' name='dateofformation')
-            small#date__of__formation__error.error
-            .form-action
-              label#password(for='') Password
-              br
-              input#userpassword.form-control.mb-3(type='password' placeholder = "Create Password"  name='password')
-            small#passworderror.error
-            .form-action
-              label#contact(for='') Email 
-              br
-              input#email-contact.form-control.mb-3(type='text' placeholder='Input Band email' name='email')
-            small#email__error.error
-            
-          
-           
-            
-          .col-lg-6.p-5
-            .form-action
-              label#userrole(for='') Role
-              br
-              select#roles.form-control.mb-3(name="role")
-                option(value="default") Select a role 
-                option(value="label") Label
-            small#roles-error.error 
-            .form-action.mb-3
-              label#profile-pic(for='')  Profile Picture 
-              br
-              input#profile-photo.form-control(type='file' name='profilepicture')
-            small#profile__picture__error.error
-            .form-action
-              label#label-icon(for='')  Label Icon 
-              br
-              input#Band-icon.form-control.mb-3(type='file' name='labelicon')
-            small#label__icon__error.error
-           
-            .form-action
-              label#sponsors(for='') Label Sponsors
-              br
-              textarea#label-sponsors.form-control.mb-3(name='labelsponsors' placeholder='Enter label Sponsors' cols='20' rows='3')
-            small#label__sponsor__error.error
-            .form-action
-              label#sponsors(for='') Artists Managed
-              br
-              textarea#artists-managed.form-control.mb-3(name='artistsmanaged' placeholder='Input artists managed' cols='20' rows='3')
-            small#label__artists__error.error
-            #button-form
-              input#submit-btn(type='submit' name='submit-button' value='SUBMIT')
-              input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
-script(src='/public/javascript/labelReg.js')
-footer.p-5.jinx.text-white.text-center.position-relative
-  .container
-    p.lead Copyright &copy; 2021 Ugaamux
-    a.position-absolute.bottom-0.end-0.p-5(href='#')
-      i.bi.bi-arrow-up-circle.h1
+extends layout 
+block content
+  body
+    .row.m-5.p-0.p-lg-0.align-items-center.text-light.jinx
+      .col-md.p-5.text-light
+        .container.jinx.align-items-center
+          h2.text-center.mt-0.text-light
+            | Label&apos;s Registration form
+          form#form-id(name='labelRegistrationForm' method='POST' action='/labelinfo/labelreg'  enctype="multipart/form-data")
+            .row.mt-5.text-light
+              .col-lg-6.border-end.p-5
+                .form-action
+                  label#labelname(for='') Label Name
+                  br
+                  input#label-name.form-control.mb-3(type='text' placeholder='Input label Name' name='labelname')
+                small#label__name__error.error
+                .form-action
+                  label#labelowner(for='') Label Owner
+                  br
+                  input#label-owner.form-control.mb-3(type='text' placeholder="Input the label owner's name" name='labelowner')
+                small#label__owner__error.error
+                .form-action
+                  label#labelhome(for='') Label Home
+                  br
+                  input#label-home.form-control.mb-3(type='text' placeholder='Input label Home' name='labelhome')
+                small#label__home__error.error
+                .form-action
+                  label#labelmembers(for='') Number of Members
+                  br
+                  input#label-numbers.form-control.mb-3(type='number' placeholder='Input number of label members' name='labelnumberofmembers')
+                small#label__Number__of__members__error.error
+                .form-action
+                  label#date-of-formation(for='') Date of Formation
+                  br
+                  input#date-of-formation.form-control.mb-3(type='date' name='dateofformation')
+                small#date__of__formation__error.error
+                .form-action
+                  label#password(for='') Password
+                  br
+                  input#userpassword.form-control.mb-3(type='password' placeholder = "Create Password"  name='password')
+                small#passworderror.error
+                .form-action
+                  label#contact(for='') Email 
+                  br
+                  input#email-contact.form-control.mb-3(type='text' placeholder='Input Band email' name='email')
+                small#email__error.error
+                
+              
+              
+                
+              .col-lg-6.p-5
+                .form-action
+                  label#userrole(for='') Role
+                  br
+                  select#roles.form-control.mb-3(name="role")
+                    option(value="default") Select a role 
+                    option(value="label") Label
+                small#roles-error.error 
+                .form-action.mb-3
+                  label#profile-pic(for='')  Profile Picture 
+                  br
+                  input#profile-photo.form-control(type='file' name='profilepicture')
+                small#profile__picture__error.error
+                .form-action
+                  label#label-icon(for='')  Label Icon 
+                  br
+                  input#Band-icon.form-control.mb-3(type='file' name='labelicon')
+                small#label__icon__error.error
+              
+                .form-action
+                  label#sponsors(for='') Label Sponsors
+                  br
+                  textarea#label-sponsors.form-control.mb-3(name='labelsponsors' placeholder='Enter label Sponsors' cols='20' rows='3')
+                small#label__sponsor__error.error
+                .form-action
+                  label#sponsors(for='') Artists Managed
+                  br
+                  textarea#artists-managed.form-control.mb-3(name='artistsmanaged' placeholder='Input artists managed' cols='20' rows='3')
+                small#label__artists__error.error
+                #button-form
+                  input#submit-btn(type='submit' name='submit-button' value='SUBMIT')
+                  input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
+    script(src='/public/javascript/labelReg.js')
+

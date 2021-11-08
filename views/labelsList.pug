@@ -2,8 +2,7 @@ extends layout
 block content
   .panel
     .panel-head
-      h6.title label List
-    span.newCust
+    span
       a(href='/labelinfo/list') Register new label
     #searchBtn.input-group
       .form-outline
@@ -17,27 +16,25 @@ block content
             th label name
             th label owner
             th label home
-            th label icon
             th label slogan
             th number of members
             th Date of formation
-            th Artists managed 
+            th Artists Managed 
             th sponsors
           if labels.length 
           each label in labels  
             tr
-              td  #{label.name}  
-              td  #{label.owner}
-              td  #{label.home}
-              td  #{label.icon}
-              td  #{label.slogan} 
+              td  #{label.labelname}  
+              td  #{label.labelowner}
+              td  #{label.labelhome}
+              td  #{label.labelslogan} 
               td  #{label.numberofmembers}
-              td  #{label.dateofformation}
+              td  #{moment(label.dateofformation).format("DD/MM/YYYY")}
               td  #{label.artistsmanaged} 
               td  #{label.sponsors}
 
               td(style="display:flex; justify-content:center; align-items:center;")
-                a.edit(href='/label/update/'+label._id)
-                  ion-icon(name='create-outline')
-                a.remove(href='/label/delete/'+label._id)
-                  ion-icon(name='trash-outline')
+                a.edit(href='/labelinfo/update/'+label._id)
+                    button.btn.btn-info.text-light(type='button') Update
+                a.remove(href='/labelinfo/delete/'+label._id)
+                    button.btn.btn-danger(type='button') Delete
