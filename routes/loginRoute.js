@@ -24,7 +24,7 @@ router.post(
     User.findOne({ email: req.body.email }).then((data) => {
       // console.log(data);
       if (data.role == "artist") {
-        res.redirect("/artistacc");
+        res.redirect("artistinfo/artistacc");
       } else if (data.role == "label") {
         res.redirect("/labelinfo/labelacc");
       } else if (data.role == "band") {

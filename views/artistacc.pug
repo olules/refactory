@@ -5,35 +5,36 @@ block content
         .col-lg-4.photo-div
           img.img-fluid(src='/'+artist.uploadpicture width = "400px" height = "600px" alt='artist photo')
           .row
-            a.artistgenre Genre
-              br
-              | #{artist.genre} 
-            a.artistalbums Albums 
-              br
-              | #{artist.numberofalbums}  
-            a.artistsongs Songs
-              br
-              | #{artist.numberofsongs} 
+            .col-md-4
+              a.artistgenre Genre
+                br
+                | #{artist.genre} 
+            .col-md-4
+              a.artistalbums Albums 
+                br
+                | #{artist.numberofalbums} 
+            .col-md-4   
+              a.artistsongs Songs
+                br
+                | #{artist.numberofsongs} 
         .col-lg-7.artist-info
-          .row.moreinformation
-            h5 Personal Information
-            .col-lg-5.containerA
+          .row.artist-info-row
+            h5 Information
+            .col-lg-5.container.text-light
               p First name
               p Last name
               p Stage name
-              p Telephone 
               p Email
               p Date of Birth
               p District
               p Date Music Began
 
           
-            .col-lg-5.containerB 
+            .col-lg-5.container.text-light
           
               p #{artist.firstname} 
               p #{artist.lastname} 
               p #{artist.stagename} 
-              p #{artist.telophonecontact} 
               p #{artist.email} 
               p #{moment(artist.artistdob).format('DD/MM/YYYY')} 
               p #{artist.districtbasedin} 
