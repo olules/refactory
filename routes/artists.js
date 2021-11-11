@@ -113,7 +113,7 @@ router.get("/artist/:stagename", async (req, res) => {
     const findArtist = await Artist.findOne({
       stagename: req.params.stagename,
     });
-    res.status(201).render("findartist", { artist: findArtist });
+    res.status(201).render("findArtist", { artist: findArtist });
   } catch (err) {
     res.status(400).send("Cannot find Artist");
   }

@@ -55,6 +55,33 @@ router.post(
     }
   }
 );
+//for searching bands the database
+router.post("/list", async (req, res) => {
+  await band.find({ bandname: req.body.bandname })
+    .then((data) => {
+      if (data.length > 0) {
+        console.log(data);
+        res.render("bandList", {
+          bands: data,
+        });
+      } else {
+        band.find({}, function(err, data) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Here");
+            res.render("bandList", {
+              user: data,
+              error: true,
+            });
+          }
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 //route to go to a particular bands database
 router.get("/bandacc", async (req, res) => {
   if (req.session.user) {

@@ -1,3 +1,4 @@
+const { TextEncoder, TextDecoder } = require("util");
 //dependencies
 const express = require('express');
 const mongoose = require('mongoose');
