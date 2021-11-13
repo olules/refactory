@@ -18,7 +18,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
     .container.border.mb-0.align-items-center
       h2.text-center.mt-3.navbar__logo
         | Band&apos;s Registration form
-      form#form-id(name='bandRegistrationForm' method='POST' action='/bandinfo/bandreg'  enctype="multipart/form-data")
+      form#form-id(name='bandRegistrationForm' method='POST' action='/bandinfo/bandreg')
         .row.mt-5.text-light
           .col-lg-4.border-end.p-5
             .form-action
@@ -124,7 +124,7 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
             #button-form
               input#submit-btn.mb-3(type='submit' name='submit-button' value='SUBMIT')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
-//- script(src='/javascript/bandRegistration.js')
+script(src='/javascript/bandRegistration.js')
 footer.p-5.jinx.text-white.text-center.position-relative
   .container
     p.lead Copyright &copy; 2021 Ugaamux
