@@ -1,6 +1,7 @@
 extends layout2
 block content
-      h2.text-center.mt-3.navbar__logo
+  section.container.jinx.p-5.mb-5
+      h2.text-center.text-light
         | Band&apos;s Registration form
       form#form-id(name='bandRegistrationForm' method='POST' action='/bandinfo/bandreg'  enctype="multipart/form-data")
         .row.mt-5.text-light
