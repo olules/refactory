@@ -1,6 +1,12 @@
 extends layout 
 block content
   section.p-5.mt-5.jinx
+    .container.jinx 
+      #searchBtn.input-group
+        form.d-flex(method='post' action='/artistinfo/list')
+            input.form-control.me-2(type='search' placeholder='Search for your artist' aria-label='Search' name='stagename')
+            button.btn.btn-outline-success(type='submit')
+              | Search
     .container.jinx
       h2.text-center.heading Solo Artists
       p.lead.text-center.text-white.mb-5

@@ -1,51 +1,39 @@
-extends layout 
+extends layout2
 block content
-  .panel
-    .panel-head
-    span.newArtist
-      a(href='/artistinfo/list') Artists List
-    #searchBtn.input-group
-      form.d-flex.search-artist(method='post' action='/artistinfo/list')
-          input.form-control.me-2(type='search' placeholder='Search for your artist' aria-label='Search' name='stagename')
-          button.btn.btn-outline-success(type='submit')
-            | Search
-
-  
-    .panel-body
-      table.table.table-striped.table-bordered
+  .section.container.jinx.text-warning.mb-5.p-5
+    
+    .row.d-flex.justify-content-center
+      .col-6
+        form.d-flex(method='post' action='/artistinfo/list')
+            input.form-control.me-2(type='search' placeholder='Search for your artist' aria-label='Search' name='stagename')
+            button.btn.btn-info.text-light(type='submit')
+              | Search
+      .col-6.d-flex.justify-content-end
+        a(href='/artistinfo/artistreg') 
+            button.btn.btn-info.text-light(type='button') Add Artist 
+                         
+    table.table.text-light.mb-5
         tbody
           tr
-            th First name
-            th Last name
-            th Stage name
-            th Artist ID
-            th Telephone
-            th Date of birth
-            th NIN
-            th Date of start
-            th Location
-            th Number of Albums 
-            th Number of Songs 
-            th genre
+            th.text-light First name
+            th.text-light Last name
+            th.text-light Stage name
+            th.text-light Date of birth
+            th.text-light Number of Albums 
+            th.text-light Number of Songs 
+            th.text-light genre
           if artists.length 
           each artist in artists  
             tr
-              td  #{artist.firstname}  
-              td  #{artist.lastname}
-              td  #{artist.stagename}
-              td  #{artist.artistid}
-              td  #{artist.telephonecontact} 
-              td  #{moment(artist.artistdob).format('DD/MM/YYYY')} 
-              td  #{artist.nationalidnumber}
-              td  #{moment(artist.dateofstart).format('DD/MM/YYYY')}
-              td  #{artist.location}
-              td  #{artist.numberofalbums}
-              td  #{artist.numberofsongs}  
-              td  #{artist.genre}
-              
-
-              td(style="display:flex; justify-content:center; align-items:center;")
+              td.text-light  #{artist.firstname}  
+              td.text-light  #{artist.lastname}
+              td.text-light  #{artist.stagename}
+              td.text-light  #{moment(artist.artistdob).format('DD/MM/YYYY')} 
+              td.text-light  #{artist.numberofalbums}
+              td.text-light  #{artist.numberofsongs}  
+              td.text-light  #{artist.genre}
+              td.text-light(style="display:flex; justify-content:center; align-items:center;")
                   a.edit(href='/artistinfo/update/'+artist._id)
                     button.btn.btn-info.text-light(type='button') Update
-                  a.remove(href='/artistinfo/delete/'+artist._id)
+                  a.remove(action='/artistinfo/delete/'+artist._id)
                     button.btn.btn-danger(type='button') Delete

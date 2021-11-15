@@ -1,21 +1,5 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
-  link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
-  link(rel='stylesheet' href='/css/style.css')
-  title BANDS REGISTRATION FORM
-  style.
-nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
-  .container
-    a#navbar__logo.navbar-brand(href='#') UGAAMUX
-// form
-.row.p-s.pt-5.p-lg-0.pt-lg-5.align-items-center.text-light.jinx.align-items-center
-  .col-md.jinx.text-light
-    .container.border.mb-0.align-items-center
+extends layout2
+block content
       h2.text-center.mt-3.navbar__logo
         | Band&apos;s Registration form
       form#form-id(name='bandRegistrationForm' method='POST' action='/bandinfo/bandreg'  enctype="multipart/form-data")
@@ -125,8 +109,4 @@ nav.navbar.navbar-expand-lg.bg-dark.jinx.card.py-3.fixed-top
               input#submit-btn.mb-3(type='submit' name='submit-button' value='SUBMIT')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
 //- script(src='/javascript/bandRegistration.js')
-footer.p-5.jinx.text-white.text-center.position-relative
-  .container
-    p.lead Copyright &copy; 2021 Ugaamux
-    a.position-absolute.bottom-0.end-0.p-5(href='#')
-      i.bi.bi-arrow-up-circle.h1
+

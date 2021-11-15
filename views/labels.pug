@@ -1,6 +1,11 @@
 extends layout 
 block content
   section.p-5.jinx
+    #searchBtn.input-group
+      form.d-flex.container(method='post' action='/labelinfo/list')
+          input.form-control.me-2(type='search' placeholder='Search for your label' aria-label='Search' name='stagename')
+          button.btn.btn-outline-success(type='submit')
+            | Search
     .container
       h2.text-center.heading Music labels
       p.lead.text-center.text-white.mb-5

@@ -1,0 +1,36 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+    link(href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    link(rel='stylesheet' href='/css/style.css')
+    title= `${title}`
+body
+    header#header.fixed-top.d-flex.align-items-center.container
+      .container.d-flex.align-items-center
+        h1.logo.me-auto.bavbar__logo
+          a(href='/') UGAAMUX
+        nav#navbar.navbar
+          ul
+            li
+              a(href='/artistinfo/list') Artist content
+            li
+              a(href='/bandinfo/list') Bands content
+            li
+              a(href='/labelinfo/list') Labels content
+            li
+              a.getstarted(href='/logout') Account
+          i.bi.bi-list.mobile-nav-toggle(data-toggle='collapse', data-target='#navbarSupportedContent')
+    main.content
+    block content
+
+footer.p-5.jinx.text-white.text-center.fixed-bottom
+  .container
+    p.lead Copyright &copy; 2021 Ugaamux
+    a.position-absolute.bottom-0.end-0.p-5(href='#')
+      i.bi.bi-arrow-up-circle.h1

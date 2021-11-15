@@ -1,55 +1,38 @@
-extends layout 
+extends layout2
 block content
-  .panel
-    .panel-head
-      h6.title Band List
-    span.newCust
-      a(href='/bandinfo/list') Register new band
-    #searchBtn.input-group
-      .form-outline
-        input#form1.form-control(type='search' placeholder='search by name' name='bandName')
-      button#SBtn.btn.btn-primary(type='button')
-        i.fa.fa-search 
-    .panel-body
-      table.zebra
-        tbody
-          tr
-            th Band name
-            th Band owner
-            th Band number of albums
-            th Band ID
-            th Band Email
-            th Band home
-            th Band crowns
-            th Band slogan
-            th genre
-            th number of members
-            th Date of formation
-            th picture 
-            th sponsors
-            th contact 
-            th icon
-          if bands.length 
-          each band in bands  
-            tr
-              td  #{band.bandname}  
-              td  #{band.bandowner}
-              td  #{band.bandalbums}
-              td  #{band.bandid}
-              td  #{band.bandemail} 
-              td  #{band.bandhome}
-              td  #{band.bandcrowns}
-              td  #{band.bandslogan} 
-              td  #{band.genre}
-              td  #{band.bandnumberofmembers}
-              td  #{band.dateofformation} 
-              td  #{band.picture}
-              td  #{band.bandsponsors}
-              td  #{band.telephonecontact} 
-              td  #{band.bandicon}
+  .section.container.jinx.text-warning.mb-5.p-5
+    .row.d-flex.justify-content-center
+      .col-6
+        form.d-flex(method='post' action='/bandinfo/list')
+            input.form-control.me-2(type='search' placeholder='Search for your band' aria-label='Search' name='stagename')
+            button.btn(type='submit', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;')
+              | Search
+      .col-6.d-flex.justify-content-end
+        a(href='/bandinfo/bandreg') 
+            button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Add band 
+    table.table.text-light.mb-5
+      tbody
+        tr
+          th.text-light Band name
+          th.text-light Band owner
+          th.text-light Band number of albums
+          th.text-light Band ID
+          th.text-light genre
+          th.text-light number of members
+          th.text-light Date of formation
 
-              td(style="display:flex; justify-content:center; align-items:center;")
-                a.edit(href='/band/update/'+band._id)
-                  ion-icon(name='create-outline')
-                a.remove(href='/band/delete/'+band._id)
-                  ion-icon(name='trash-outline')
+        if bands.length 
+        each band in bands  
+          tr
+            td.text-light  #{band.bandname}  
+            td.text-light  #{band.bandowner}
+            td.text-light  #{band.bandalbums}
+            td.text-light  #{band.bandid} 
+            td.text-light  #{band.genre}
+            td.text-light  #{moment(band.bandnumberofmembers).format('MM/DD/YYYY')}
+            td.text-light  #{band.dateofformation} 
+            td(style="display:flex; justify-content:center; align-items:center;")
+              a.edit(href='/band/update/'+band._id)
+                button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Edit
+              a.remove(href='/band/delete/'+band._id)
+                button.btn(type='button', style='margin-left:10px; background: #EE4B2B; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Delete

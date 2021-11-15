@@ -57,7 +57,7 @@ router.post(
 );
 //for searching bands the database
 router.post("/list", async (req, res) => {
-  await band.find({ bandname: req.body.bandname })
+  await Band.find({ bandname: req.body.bandname })
     .then((data) => {
       if (data.length > 0) {
         console.log(data);
@@ -65,7 +65,7 @@ router.post("/list", async (req, res) => {
           bands: data,
         });
       } else {
-        band.find({}, function(err, data) {
+        Band.find({}, function(err, data) {
           if (err) {
             console.log(err);
           } else {

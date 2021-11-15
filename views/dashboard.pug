@@ -1,47 +1,7 @@
-extends layout 
+extends layout2
 block content 
-  .row.bg-light.p-5.m-5.jinx.text-light
-    .container-fluid.mt-5.pt-5.col-md
-      .row.flex-nowrap
-        .col-auto.col-md-3.col-xl-2.px-sm-2.px-5.bg-light
-          .d-flex.flex-column.align-items-center.align-items-sm-start.px-5.pt-2.text-light.min-vh-100
-            a.d-flex.align-items-center.pb-3.mb-md-0.me-md-auto.text-white.text-decoration-none(href='/')
-              span.fs-5.d-none.d-sm-inline Clerks' Dashboard
-            ul#menu.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start
-              li.nav-item
-                a.nav-link.align-middle.px-0(href='/')
-                  i.fs-4.bi-house
-                  span.ms-1.d-none.d-sm-inline UGAAMUX
-              li
-                a.nav-link.px-0.align-middle(href='#submenu1' data-bs-toggle='collapse')
-                  i.fs-4.bi-speedometer2
-                  span.ms-1.d-none.d-sm-inline forms
-                ul#submenu1.collapse.show.nav.flex-column.ms-1(data-bs-parent='#menu')
-                  li.w-100
-                    a.nav-link.px-0(href='/artistinfo/artistreg')
-                      span.d-none.d-sm-inline Artists' registration form
+  
                       
-                  li
-                    a.nav-link.px-0(href='/bandinfo/bandreg')
-                      span.d-none.d-sm-inline Bands' registration form
-                  li
-                    a.nav-link.px-0(href='/labelinfo/labelreg')
-                      span.d-none.d-sm-inline Labels' registration form
-                      
-              li
-                a.nav-link.px-0.align-middle(href='#')
-                  i.fs-4.bi-table
-                  span.ms-1.d-none.d-sm-inline Tables
-                  ul#submenu1.collapse.show.nav.flex-column.ms-1(data-bs-parent='#menu')
-                  li.w-100
-                    a.nav-link.px-0(href='/artistinfo/list')
-                      span.d-none.d-sm-inline Artists' List
-                      
-                  li
-                    a.nav-link.px-0(href='/bandinfo/list')
-                      span.d-none.d-sm-inline Bands' registration list
-                  li
-                    a.nav-link.px-0(href='/labelinfo/list')
-                      span.d-none.d-sm-inline Labels' registration list
+             
               
             
