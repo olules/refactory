@@ -30,7 +30,7 @@ router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
   try {
     const artistReg = new Artist(req.body);
     const user = new User(req.body);
-
+    console.log(req.file.path);
     artistReg.uploadpicture = req.file.path;
     await artistReg.save();
     await User.register(user, req.body.password, (err) => {
@@ -81,7 +81,7 @@ router.post("/list", async (req, res) => {
           artists: data,
         });
       } else {
-        Artist.find({}, function(err, data) {
+        Artist.find({}, function (err, data) {
           if (err) {
             console.log(err);
           } else {
@@ -133,7 +133,7 @@ router.get("/update/:id", async (req, res) => {
 router.post("/update/:id", async (req, res) => {
   try {
     await Artist.findOneAndUpdate({ _id: req.params.id }, req.body);
-    res.redirect("/artistinfo/list");
+    res.redirect("/artistinfo/list/");
   } catch (err) {
     res.status(400).send("Error Updating the Artist");
     console.log(err);
@@ -145,7 +145,7 @@ router.post("/update/:id", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
   try {
     await Artist.findByIdAndDelete({ _id: req.params.id });
-    res.redirect("artistinfo/list");
+    res.redirect("/artistinfo/list");
   } catch (err) {
     res.status(500).send("Error, Unable to delete Artist from the DataBase");
   }

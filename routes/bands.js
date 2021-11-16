@@ -65,7 +65,7 @@ router.post("/list", async (req, res) => {
           bands: data,
         });
       } else {
-        Band.find({}, function(err, data) {
+        Band.find({}, function (err, data) {
           if (err) {
             console.log(err);
           } else {
@@ -115,7 +115,7 @@ router.post("/list", async (req, res) => {
           bands: data,
         });
       } else {
-        Band.find({}, function(err, data) {
+        Band.find({}, function (err, data) {
           if (err) {
             console.log(err);
           } else {

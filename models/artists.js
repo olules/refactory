@@ -74,13 +74,13 @@ const artistSchema = new mongoose.Schema({
 
     },
     uploadpicture: {
-        type: String
+        type: String,
 
-    }
+    },
 
 })
 artistSchema.plugin(passportmongoose, {
     usernameField: 'email',
-    
+
 });
 module.exports = mongoose.model('Artist', artistSchema)

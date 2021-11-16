@@ -1,9 +1,9 @@
 extends layout2
 block content
   h2.text-center.mt-5.text-warning Artists' Registration Form
-  form.mb-5#form-id(name='artistRegistrationForm' method='POST' action='/artistinfo/artistreg' enctype="multipart/form-data")
+  form.mb-5#form-id(name='artistRegistrationForm' method='POST' action='/artistinfo/artistreg' enctype='multipart/form-data')
     .row.text-light.p-5
-      .container.col-md
+      .container.col-md 
         .row.px-5.mx-5
           .col-lg-4.border.p-5.border-right-0
             .form-action
@@ -93,7 +93,7 @@ block content
               input#music-type.form-control.mb-3(type='text' placeholder='Input artist Genre' name='genre')
             small#artist__genre__error.error
             p#pgender Gender
-            #gender-form
+            #gender-form 
               span
                 label#fmale(for='smale') Male
                 input#smale.mb-3(type='radio' name='gender' value='male')
@@ -109,4 +109,10 @@ block content
             #button-form.mb-5
               input#submit-btn(type='submit'  name='submit-button' value='submit')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
-  
+
+  footer.p-5.jinx.text-white.text-center.position-relative
+    .container
+      p.lead Copyright &copy; 2021 Ugaamux
+      a.position-absolute.bottom-0.end-0.p-5(href='#')
+        i.bi.bi-arrow-up-circle.h1
+  script(src='/javascript/artistsReg.js')

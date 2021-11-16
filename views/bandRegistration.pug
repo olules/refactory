@@ -3,7 +3,7 @@ block content
   section.container.jinx.p-5.mb-5
       h2.text-center.text-light
         | Band&apos;s Registration form
-      form#form-id(name='bandRegistrationForm' method='POST' action='/bandinfo/bandreg')
+      form#form-id(name='bandRegistrationForm' method='POST' action='/bandinfo/bandreg' enctype='multipart/form-data')
         .row.mt-5.text-light
           .col-lg-4.border-end.p-5
             .form-action
@@ -103,20 +103,20 @@ block content
             small#other__band__owners__error.error
             .form-action
               label#sponsors(for='') Band Sponsors(if any)
-              br
+              br 
               textarea#band-sponsors.form-control.mb-3(name='bandsponsors' placeholder='Enter Band Sponsors' cols='30' rows='3')
             small#band__sponsor__error.error
             #button-form
               input#submit-btn.mb-3(type='submit' name='submit-button' value='SUBMIT')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
-<<<<<<< HEAD
-//- script(src='/javascript/bandRegistration.js')
 
-=======
-script(src='/javascript/bandRegistration.js')
-footer.p-5.jinx.text-white.text-center.position-relative
-  .container
-    p.lead Copyright &copy; 2021 Ugaamux
-    a.position-absolute.bottom-0.end-0.p-5(href='#')
-      i.bi.bi-arrow-up-circle.h1
->>>>>>> 539342e79a80606e431df351f229403174a370e8
+  //- script(src='/javascript/bandRegistration.js')
+ 
+
+  script(src='/javascript/bandRegistration.js')
+  footer.p-5.jinx.text-white.text-center.position-relative
+    .container
+      p.lead Copyright &copy; 2021 Ugaamux
+      a.position-absolute.bottom-0.end-0.p-5(href='#')
+        i.bi.bi-arrow-up-circle.h1
+

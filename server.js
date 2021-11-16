@@ -17,7 +17,7 @@ const expressSession = require('express-session')({
     resave:false,
     saveUninitialized:false
 });
-
+ 
 // Import user model
 const User = require('./models/User');
 // //Import Routes
@@ -32,7 +32,7 @@ const loginRoute = require("./routes/loginRoute");
 const app = express();
 
 //Database configuration
-mongoose.connect(process.env.MONGO_URI,{
+mongoose.connect("mongodb://localhost:27017/solo",{
     useNewUrlParser:true,
     // useUnifiedTopology:true,
     // useCreateIndex:true,
@@ -74,10 +74,10 @@ app.use('/public/img',express.static(__dirname + '/public/img'));
 
 
 
-
+ 
 //routes middleware
 app.use('/bandinfo',Bands);
-app.use('/', Clerks)
+app.use('/', Clerks) 
 app.use('/artistinfo',Artists);
 app.use('/labelinfo',labels);
 app.use('/',loginRoute);
