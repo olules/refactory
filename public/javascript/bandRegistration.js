@@ -14,7 +14,7 @@ const twitterHandle = document.bandRegistrationForm.twitterhandle;
 const bandName = document.bandRegistrationForm.bandname;
 const bandOwner = document.bandRegistrationForm.bandowner;
 const bandHome = document.bandRegistrationForm.bandhome;
-const bandEmail = document.bandRegistrationForm.bandemail;
+const bandEmail = document.bandRegistrationForm.email;
 const bandCrowns = document.bandRegistrationForm.bandcrowns;
 
 const bandCrownsError = document.getElementById("band__crowns__error");
@@ -249,22 +249,7 @@ const validate = () => {
     telephoneContact.style.border = "1px solid #90EE90";
   }
 
-  // Validating the twitter handle of bands.
-  if (twitterHandle.value == "") {
-    twitterHandleError.innerHTML = " Twitter handle Required ";
-    twitterHandleError.style = "color:#FF7F7F ";
-    twitterHandle.style.border = " 1px solid #FF7F7F ";
-    twitterHandle.focus();
-  } else if (!twitterHandle.value.match(twitterFormat)) {
-    twitterHandleError.innerHTML = "Invalid twitter handle ";
-    twitterHandleError.style = "color:#FF7F7F";
-    twitterHandle.style.border = "1px solid #FF7F7F";
-    twitterHandle.focus();
-  } else {
-    twitterHandleError.innerHTML = "Field correctly filled ";
-    twitterHandleError.style = "color:#90EE90 ";
-    twitterHandle.style.border = "1px solid #90EE90";
-  }
+
 
   // Validating the band email .
   if (bandEmail.value == "") {

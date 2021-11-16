@@ -77,11 +77,11 @@ const artistSchema = new mongoose.Schema({
         type: String,
         trim: true
 
-    }
+    },
 
 })
 artistSchema.plugin(passportmongoose, {
     usernameField: 'email',
-    
+
 });
 module.exports = mongoose.model('Artist', artistSchema)
