@@ -5,11 +5,11 @@ block content
       .col-6
         form.d-flex(method='post' action='/bandinfo/list')
             input.form-control.me-2(type='search' placeholder='Search for your band' aria-label='Search' name='stagename')
-            button.btn(type='submit', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;')
+            button.btn(type='submit', style='margin-left:10px; background: #7612f8; padding: 8px 25px;  border-radius: 4px; font-weight: 400; color: #fff;')
               | Search
       .col-6.d-flex.justify-content-end
         a(href='/bandinfo/bandreg') 
-            button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Add band 
+            button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px;  border-radius: 4px; font-weight: 400; color: #fff;') Add band 
     table.table.text-light.mb-5
       tbody
         tr
@@ -26,13 +26,13 @@ block content
           tr
             td.text-light  #{band.bandname}  
             td.text-light  #{band.bandowner}
-            td.text-light  #{band.numberofalbums}
+            td.text-light  #{band.bandalbums}
             td.text-light  #{band.bandid} 
             td.text-light  #{band.genre}
-            td.text-light  #{moment(band.bandnumberofmembers).format('MM/DD/YYYY')}
-            td.text-light  #{band.dateofformation} 
+            td.text-light  #{band.bandnumberofmembers}
+            td.text-light  #{moment(band.dateofformation).format('DD/MM/YYYY')} 
             td(style="display:flex; justify-content:center; align-items:center;")
-              a.edit(href='/band/update/'+band._id)
-                button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Edit
-              a.remove(href='/band/delete/'+band._id)
-                button.btn(type='button', style='margin-left:10px; background: #EE4B2B; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Delete
+              a.edit(href='/bandinfo/update/'+band._id)
+                button.btn(type='button', style=' background: #7612f8; padding: 8px 25px;  border-radius: 4px; font-weight: 400; color: #fff;') Edit
+              a.remove(href='/bandinfo/delete/'+band._id)
+                button.btn(type='button', style=' background: #EE4B2B; padding: 8px 25px;  border-radius: 4px; font-weight: 400; color: #fff;') Delete

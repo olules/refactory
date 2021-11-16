@@ -132,6 +132,33 @@ router.post("/list", async (req, res) => {
       console.log(error);
     });
 });
+//searching on the bands page
+router.post('/bands', async (req,res) => {
+  await Band.find({ stagename: req.body.stagename })
+  .then((data) => {
+    if (data.length > 0) {
+      console.log(data);
+      res.render("bands", {
+        bands: data,
+      });
+    } else {
+      Band.find({}, function(err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Here");
+          res.render("bands", {
+            user: data,
+            error: true,
+          });
+        }
+      });
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  });
 //go to bands page
 router.get("/bands", async (req, res) => {
   try {
@@ -169,7 +196,7 @@ router.get("/update/:id", async (req, res) => {
 router.post("/update", async (req, res) => {
   try {
     await Band.findOneAndUpdate({ _id: req.query.id }, req.body);
-    res.redirect("/band/list");
+    res.redirect("/bandinfo/list");
   } catch (error) {
     res.status(400).send("Error Updating the band");
   }
@@ -180,7 +207,7 @@ router.post("/update", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
   try {
     await Band.findOneAndDelete({ _id: req.params.id });
-    res.redirect("back");
+    res.redirect("/bandinfo/list");
   } catch (error) {
     res.status(400).send("Error deleting band from the DataBase");
   }

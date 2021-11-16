@@ -40,8 +40,8 @@ router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
       console.log("Info posted");
       res.redirect("/artistinfo/artistreg");
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(400).send("Error");
   }
 });
@@ -98,6 +98,34 @@ router.post("/list", async (req, res) => {
       console.log(error);
     });
 });
+//searching on the artists page
+router.post('/artists', async (req,res) => {
+await Artist.find({ stagename: req.body.stagename })
+.then((data) => {
+  if (data.length > 0) {
+    console.log(data);
+    res.render("artists", {
+      artists: data,
+    });
+  } else {
+    Artist.find({}, function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Here");
+        res.render("artists", {
+          user: data,
+          error: true,
+        });
+      }
+    });
+  }
+})
+.catch((error) => {
+  console.log(error);
+});
+});
+
 //go to artists page
 router.get("/artists", async (req, res) => {
   try {

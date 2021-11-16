@@ -1,3 +1,4 @@
+
 const validate = (event) => {
   const firstName = document.artistRegistrationForm.firstname;
   const lastName = document.artistRegistrationForm.lastname;
@@ -17,6 +18,7 @@ const validate = (event) => {
 
   const male = document.getElementById("smale");
   const female = document.getElementById("sfemale");
+
 
   const firstNameError = document.getElementById("first__name__error");
   const lastNameError = document.getElementById("last__name__error");
@@ -41,6 +43,7 @@ const validate = (event) => {
     "artist__picture__error"
   );
   const genderError = document.getElementById("artist__gender__error");
+
 
   let checkValid = true;
 
@@ -188,9 +191,6 @@ const validate = (event) => {
     phoneNumberError.style = "color:#90EE90 ";
     telephoneContact.style.border = "1px solid #90EE90";
   }
-
-  // validation of of Artist Email input
-
   if (artistEmail.value == "") {
     emailError.innerHTML = "Artist Email Field Required ";
     emailError.style = "color:#FF7F7F";
@@ -410,8 +410,6 @@ const validate = (event) => {
     event.preventDefault();
     return false;
   }
-};
-
 const artistform = document.getElementById("form-id");
 
 artistform.addEventListener("submit", (event) => {

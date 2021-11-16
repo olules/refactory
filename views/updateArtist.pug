@@ -1,33 +1,33 @@
-extends layout 
+extends layout2 
 block content 
-    title= `${title}`    
+        
     body
-        .row.p-s.pt-5.p-lg-0.pt-lg-5.d-flex.justify-content-center
-            .col-lg-6.jinx.text-light
-                .container.border.mb-0.align-items-center
-                h5.text-center.mt-3 UPDATE
-                    form(action="/artistinfo/update/"+artist._id  method="POST" name="artist__info__update" )
-                        .row.container-mt-5.text-light
-                            .col-sm.p-5.m-5.text-start
-                                .form-action
-                                    label#numofalbums(for='') Number of Albums
-                                    br
-                                    input#numalbums.form-control.mb-3(type='number' name='numberofalbums' value=artist.numberofalbums placeholder="Input artist's number of albums")
-                                small#number__of__albums__error.error
-                                .form-action
-                                    label#numofsongs(for='') Number of Songs
-                                    br
-                                    input#numberOfSongs.form-control.mb-3(type='number' name='numberofsongs' value=artist.numberofsongs placeholder="Input artist's number of songs")
-                                small#number__of__songs__error.error
-                                
-                                .form-action
-                                    label#bandowner(for='email') Email
-                                    br
-                                    input#email.form-control.mb-3(type='text' placeholder="Input your email" value=artist.email name='email')
-                                small#email__error.error
-                                .form-action
-                                    label#telcontact(for='') Telephone Contact
-                                    br
-                                    input#telephone__contact.form-control.mb-3(type='text' placeholder="Input artist's phone number" value=artist.telephonecontact name='telephonecontact')
-                                small#phone__number__error.error 
-                                button.btn.btn-primary(type="submit") UPDATE
+        row.p-s.pt-5.p-lg-0.pt-lg-5.pb-5.d-flex.justify-content-center
+            .col-lg-4.jinx.text-light
+                .container.mb-5.align-items-center.form-group.border-info
+                    h5.text-center.mt-3 UPDATE
+                        form(action="/artistinfo/update/"+artist._id  method="POST" name="artist__info__update" )
+                            .row.text-light
+                                    .col-sm.mb-5.text-start
+                                        .form-action
+                                            label#numofalbums(for='') Number of Albums
+                                            br
+                                            input#numalbums.form-control.mb-3(type='number' name='numberofalbums' value=artist.numberofalbums placeholder="Input artist's number of albums")
+                                        small#number__of__albums__error.error
+                                        .form-action
+                                            label#numofsongs(for='') Number of Songs
+                                            br
+                                            input#numberOfSongs.form-control.mb-3(type='number' name='numberofsongs' value=artist.numberofsongs placeholder="Input artist's number of songs")
+                                        small#number__of__songs__error.error
+                                        
+                                        .form-action
+                                            label#bandowner(for='email') Email
+                                            br
+                                            input#email.form-control.mb-3(type='text' placeholder="Input your email" value=artist.email name='email')
+                                        small#email__error.error
+                                        .form-action
+                                            label#telcontact(for='') Telephone Contact
+                                            br
+                                            input#telephone__contact.form-control.mb-3(type='text' placeholder="Input artist's phone number" value=artist.telephonecontact name='telephonecontact')
+                                        small#phone__number__error.error 
+                                        button.btn(type='submit', style=' background: #7612f8; padding: 8px 25px; border-radius: 4px; font-weight: 400; color: #fff;') UPDATE

@@ -75,6 +75,7 @@ const artistSchema = new mongoose.Schema({
     },
     uploadpicture: {
         type: String,
+        trim: true
 
     },
 
