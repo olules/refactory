@@ -1,18 +1,18 @@
 extends layout2
 block content
-  .section.container.jinx.text-warning.mb-5.p-5
+  .section.container.jinx.text-warning.mb-5.mt-5
     
     .row.d-flex.justify-content-center
       .col-6
         form.d-flex(method='post' action='/artistinfo/list')
-            input.form-control.me-2(type='search' placeholder='Search for your artist' aria-label='Search' name='stagename')
-            button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;')
+            input.form-control.me-2(type='text' placeholder='Search for your artist' aria-label='Search' name='stagename')
+            button.btn(type='search', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;')
               | Search
       .col-6.d-flex.justify-content-end
         a(href='/artistinfo/artistreg') 
             button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Add Artist 
                          
-    table.table.text-light.mb-5
+    table.table.text-light.mb-5.pb-5
         tbody
           tr
             th.text-light First name
