@@ -180,7 +180,7 @@ router.post("/update", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
   try {
     await Band.findOneAndDelete({ _id: req.params.id });
-    res.redirect("back");
+    res.redirect("/bandinfo/list");
   } catch (error) {
     res.status(400).send("Error deleting band from the DataBase");
   }

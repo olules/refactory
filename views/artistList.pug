@@ -6,11 +6,11 @@ block content
       .col-6
         form.d-flex(method='post' action='/artistinfo/list')
             input.form-control.me-2(type='search' placeholder='Search for your artist' aria-label='Search' name='stagename')
-            button.btn.btn-info.text-light(type='submit')
+            button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;')
               | Search
       .col-6.d-flex.justify-content-end
         a(href='/artistinfo/artistreg') 
-            button.btn.btn-info.text-light(type='button') Add Artist 
+            button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Add Artist 
                          
     table.table.text-light.mb-5
         tbody
@@ -34,6 +34,6 @@ block content
               td.text-light  #{artist.genre}
               td.text-light(style="display:flex; justify-content:center; align-items:center;")
                   a.edit(href='/artistinfo/update/'+artist._id)
-                    button.btn.btn-info.text-light(type='button') Update
+                    button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Update
                   a.remove(href='/artistinfo/delete/'+artist._id)
-                    button.btn.btn-danger(type='button') Delete
+                    button.btn(type='button', style='margin-left:10px; background: #EE4B2B; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Delete

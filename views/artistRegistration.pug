@@ -9,65 +9,70 @@ block content
             .form-action
               label#firstname(for='') First Name
               input#f__name.form-control.mb-3(type='text' name='firstname' placeholder="Input artist's first Name ")
-            small#first__name__error.error
+            small#first__name__error
             .form-action
               label#lastname(for='') Last Name
               input#l__name.form-control.mb-3(type='text' name='lastname' placeholder="Input  artist's  Last Name ")
-            small#last__name__error.error
+            small#last__name__error
             .form-action
               label#stgname(for='') Stage Name
               br
               input#stage__name.form-control.mb-3(type='text' name='stagename' placeholder="Input artist's Stage name")
-            small#stage__name__error.error
+            small#stage__name__error
             .form-action
               label#artistID(for='') Artist ID
               br
               input#artist__id.form-control.mb-3(type='text' name='artistid' placeholder='Input artist ID')
-            small#artist__Id__error.error  
+            small#artist__Id__error  
             .form-action
               label#telcontact(for='') Telephone Contact
               br
               input#telephone__contact.form-control.mb-3(type='text' placeholder="Input artist's phone number" name='telephonecontact')
-            small#phone__number__error.error 
+            small#telephone__contact__error 
             .form-action
               label#userrole(for='') Role
               br
               select#roles.form-control(name="role")
                 option(value="default") Select a role 
                 option(value="artist") Artist 
-            small#roles-error.error 
+            small#role__error 
             
           .col-lg-4.p-5.form-action.border
             .form-action
               label#contact(for='') Email 
               br
               input#email-contact.form-control.mb-3(type='text' placeholder="Input artist's Email" name='email')
-            small#artist__email__error.error
+            small#artist__email__error
             .form-action
               label#DOB(for='') Date of birth
               br
               input#dob-id.form-control.mb-3(max='2017-12-31' type='date' name='artistdob')
-            small#artist__dob__error.error
+            small#artist__dob__error
             .form-action
               label#based(for='') Based in
               br
               input#based.mb-3.form-control(type='text' name='districtbasedin' placeholder='Input the district that the artist is based')
-            small#district__based__in__error.error
+            small#district__based__in__error
             .form-action
               label#nin(for='') National ID NIN
               br
               input#NIN-id.form-control.mb-3(type='text' name='nationalidnumber' placeholder="Input artist's  NIN")
-            small#artist__nin__error.error
+            small#national__id__number__error
             .form-action
               label#date-started(for='') Date Began Music
               br
               input#date-started.form-control.mb-3(type='date' name='dateofstart')
-            small#date__of__start__error.error
+            small#date__of__start__error
             .form-action
               label#password(for='') Password
               br
               input#userpassword.form-control(type='password' placeholder = "Create Password"  name='password')
-            small#passworderror.error
+            small#password__error
+            .form-action
+              label#confirmpassword(for='') Confirm Password
+              br
+              input#confirmpassword.form-control(type='password' placeholder = "Confirm Password"  name='confirmpassword')
+            small#confirmpassword__error
            
             
           .col-lg-4.p-5.form-action.border
@@ -75,23 +80,23 @@ block content
             .form-action
               label#locn(for='') Location
               br
-              input#location.form-control.mb-3(type='text' name='location' placeholder="Input artist's location")
-            small#artist__location__error.error
+              input#location.form-control.mb-3(type='text' name='artistlocation' placeholder="Input artist's location")
+            small#location__error
             .form-action
               label#numofalbums(for='') Number of Albums
               br
               input#numalbums.form-control.mb-3(type='number' name='numberofalbums' placeholder="Input artist's number of albums")
-            small#number__of__albums__error.error
+            small#number__of__albums__error
             .form-action
               label#numofsongs(for='') Number of Songs
               br
               input#numberOfSongs.form-control.mb-3(type='number' name='numberofsongs' placeholder="Input artist's number of songs")
-            small#number__of__songs__error.error
+            small#number__of__songs__error
             .form-action
               label#genre(for='') Genre
               br
               input#music-type.form-control.mb-3(type='text' placeholder='Input artist Genre' name='genre')
-            small#artist__genre__error.error
+            small#genre__error
             p#pgender Gender
             #gender-form
               span
@@ -100,13 +105,13 @@ block content
               span
                 label#fmale(for='sfemale') Female
                 input#sfemale.mb-3(type='radio' name='gender' value='female')
-            small#artist__gender__error.error
+            small#gender__error
             .form-action
               label#profile-photo(for='') Profile Picture
               br
               input#artiste-image.form-control.mb-3(type='file' name='uploadpicture')
-            small#artist__picture__error.error
+            small#upload__picture__error
             #button-form.mb-5
               input#submit-btn(type='submit'  name='submit-button' value='submit')
               input#cancel-btn(type='reset' name='cancel-button' value='CANCEL')
-  
+  script(src='/javascript/artistRegistration.js')

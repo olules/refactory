@@ -26,11 +26,11 @@ block content
           tr
             td.text-light  #{band.bandname}  
             td.text-light  #{band.bandowner}
-            td.text-light  #{band.numberofalbums}
+            td.text-light  #{band.bandalbums}
             td.text-light  #{band.bandid} 
             td.text-light  #{band.genre}
-            td.text-light  #{moment(band.bandnumberofmembers).format('MM/DD/YYYY')}
-            td.text-light  #{band.dateofformation} 
+            td.text-light  #{band.bandnumberofmembers}
+            td.text-light  #{moment(band.dateofformation).format('DD/MM/YYYY')} 
             td(style="display:flex; justify-content:center; align-items:center;")
               a.edit(href='/band/update/'+band._id)
                 button.btn(type='button', style='margin-left:10px; background: #7612f8; padding: 8px 25px; margin-left: 30px; border-radius: 4px; font-weight: 400; color: #fff;') Edit

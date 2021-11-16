@@ -40,8 +40,8 @@ router.post("/artistreg", upload.single("uploadpicture"), async (req, res) => {
       console.log("Info posted");
       res.redirect("/artistinfo/artistreg");
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(400).send("Error");
   }
 });
