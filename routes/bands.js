@@ -133,32 +133,32 @@ router.post("/list", async (req, res) => {
     });
 });
 //searching on the bands page
-router.post('/bands', async (req,res) => {
-  await Band.find({ stagename: req.body.stagename })
-  .then((data) => {
-    if (data.length > 0) {
-      console.log(data);
-      res.render("bands", {
-        bands: data,
-      });
-    } else {
-      Band.find({}, function(err, data) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Here");
-          res.render("bands", {
-            user: data,
-            error: true,
-          });
-        }
-      });
-    }
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-  });
+router.post("/bands", async (req, res) => {
+  await Band.find({ bandname: req.body.bandname })
+    .then((data) => {
+      if (data.length > 0) {
+        console.log(data);
+        res.render("bands", {
+          bands: data,
+        });
+      } else {
+        Band.find({}, function(err, data) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Here");
+            res.render("bands", {
+              user: data,
+              error: true,
+            });
+          }
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 //go to bands page
 router.get("/bands", async (req, res) => {
   try {
@@ -193,7 +193,7 @@ router.get("/update/:id", async (req, res) => {
 });
 
 //save updated band information
-router.post("/update", async (req, res) => {
+router.post("/update/:id", async (req, res) => {
   try {
     await Band.findOneAndUpdate({ _id: req.query.id }, req.body);
     res.redirect("/bandinfo/list");

@@ -82,6 +82,33 @@ router.post("/list", async (req, res) => {
       console.log(error);
     });
 });
+//searching on the labels page
+router.post('/labels', async (req,res) => {
+  await Label.find({ labelname: req.body.labelname })
+  .then((data) => {
+    if (data.length > 0) {
+      console.log(data);
+      res.render("labels", {
+        labels: data,
+      });
+    } else {
+      Label.find({}, function(err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Here");
+          res.render("labels", {
+            user: data,
+            error: true,
+          });
+        }
+      });
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  });
 //go to labels page
 router.get("/labels", async (req, res) => {
   try {

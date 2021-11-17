@@ -12,7 +12,7 @@ const bandSchema = new mongoose.Schema({
 
     },
     bandalbums:{
-        type: String,
+        type: Number,
         trim: true,
 
     },

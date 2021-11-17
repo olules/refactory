@@ -1,8 +1,7 @@
 extends layout 
-block content   
-  title= `${title}`    
+block content       
   body
-    .row.p-s.pt-5.p-lg-0.pt-lg-5.d-flex.justify-content-center
+    .row.mt-4.d-flex.justify-content-center
       .col-lg-6.jinx.text-light
         .container.border.mb-0.align-items-center
           h5.text-center.mt-3 Log in 
@@ -19,4 +18,4 @@ block content
                       br
                       input#password.form-control.mb-3(type='password' placeholder='Input password' name='password')
                     small#password__error.error
-                    button.btn.btn-primary(type="submit") Login
+                    button.btn(type="submit" , style=' background: #7612f8; padding: 8px 25px; border-radius: 4px; font-weight: 400; color: #fff;') Login
