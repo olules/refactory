@@ -1,10 +1,10 @@
 extends layout2
 block content
   h2.text-center.mt-5.text-warning Artists' Registration Form
-  form.mb-5#form-id(name='artistRegistrationForm' method='POST' action='/artistinfo/artistreg' enctype='multipart/form-data')
+  form.container.mb-5#form-id(name='artistRegistrationForm' method='POST' action='/artistinfo/artistreg' enctype="multipart/form-data)
     .row.text-light.p-5
       .container.col-md 
-        .row.px-5.mx-5
+        .row.px-5
           .col-lg-4.border.p-5.border-right-0
             .form-action
               label#firstname(for='') First Name
@@ -68,11 +68,7 @@ block content
               br
               input#userpassword.form-control(type='password' placeholder = "Create Password"  name='password')
             small#password__error
-            .form-action
-              label#confirmpassword(for='') Confirm Password
-              br
-              input#confirmpassword.form-control(type='password' placeholder = "Confirm Password"  name='confirmpassword')
-            small#confirmpassword__error
+            
            
             
           .col-lg-4.p-5.form-action.border

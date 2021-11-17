@@ -32,7 +32,7 @@ const loginRoute = require("./routes/loginRoute");
 const app = express();
 
 //Database configuration
-mongoose.connect("mongodb://localhost:27017/solo",{
+mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
     // useUnifiedTopology:true,
     // useCreateIndex:true,

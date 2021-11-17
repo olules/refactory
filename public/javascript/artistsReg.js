@@ -1,48 +1,51 @@
+const firstName = document.artistRegistrationForm.firstname;
+const lastName = document.artistRegistrationForm.lastname;
+const stageName = document.artistRegistrationForm.stagename;
+const artistId = document.artistRegistrationForm.artistid;
+const telephoneContact = document.artistRegistrationForm.telephonecontact;
+const artistEmail = document.artistRegistrationForm.email;
+const artistDob = document.artistRegistrationForm.artistdob;
+const districtBasedIn = document.artistRegistrationForm.districtbasedin;
+const nationalIdNumber = document.artistRegistrationForm.nationalidnumber;
+const dateOfStart = document.artistRegistrationForm.dateofstart;
+const artistLocation = document.artistRegistrationForm.artistlocation;
+const numberOfAlbums = document.artistRegistrationForm.numberofalbums;
+const numberOfSongs = document.artistRegistrationForm.numberofsongs;
+const genre = document.artistRegistrationForm.genre;
+const uploadPicture = document.artistRegistrationForm.uploadpicture;
+const role = document.artistRegistrationForm.role;
+const password = document.artistRegistrationForm.password;
+const male = document.getElementById("smale");
+const female = document.getElementById("sfemale");
 
-const validate = (event) => {
-  const firstName = document.artistRegistrationForm.firstname;
-  const lastName = document.artistRegistrationForm.lastname;
-  const stageName = document.artistRegistrationForm.stagename;
-  const artistId = document.artistRegistrationForm.artistid;
-  const telephoneContact = document.artistRegistrationForm.telephonecontact;
-  const artistEmail = document.artistRegistrationForm.email;
-  const artistDob = document.artistRegistrationForm.artistdob;
-  const districtBasedIn = document.artistRegistrationForm.districtbasedin;
-  const nationalIdNumber = document.artistRegistrationForm.nationalidnumber;
-  const dateOfStart = document.artistRegistrationForm.dateofstart;
-  const location = document.artistRegistrationForm.location;
-  const numberOfAlbums = document.artistRegistrationForm.numberofalbums;
-  const numberOfSongs = document.artistRegistrationForm.numberofsongs;
-  const genre = document.artistRegistrationForm.genre;
-  const uploadPicture = document.artistRegistrationForm.uploadpicture;
-
-  const male = document.getElementById("smale");
-  const female = document.getElementById("sfemale");
-
-
-  const firstNameError = document.getElementById("first__name__error");
-  const lastNameError = document.getElementById("last__name__error");
-  const stageNameError = document.getElementById("stage__name__error");
-  const artistIdError = document.getElementById("artist__Id__error");
-  const phoneNumberError = document.getElementById("phone__number__error");
-  const artistTwitterError = document.getElementById("artist__twitter__error");
-  const emailError = document.getElementById("artist__email__error");
-  const artistDobError = document.getElementById("artist__dob__error");
-  const districtBasedInError = document.getElementById(
+const firstNameError = document.getElementById("first__name__error");
+const lastNameError = document.getElementById("last__name__error");
+const stageNameError = document.getElementById("stage__name__error");
+const artistIdError = document.getElementById("artist__Id__error");
+const phoneNumberError = document.getElementById("telephone__contact__error");
+const emailError = document.getElementById("artist__email__error");
+const artistDobError = document.getElementById("artist__dob__error");
+const districtBasedInError = document.getElementById(
     "district__based__in__error"
   );
-  const artistNinError = document.getElementById("artist__nin__error");
-  const dateOfStartError = document.getElementById("date__of__start__error");
-  const locationError = document.getElementById("artist__location__error");
-  const numberOfAlbumsError = document.getElementById(
+const artistNinError = document.getElementById("artist__nin__error");
+const dateOfStartError = document.getElementById("date__of__start__error");
+const artistLocationError = document.getElementById("location__error");
+const numberOfAlbumsError = document.getElementById(
     "number__of__albums__error"
   );
-  const numberOfSongsError = document.getElementById("number__of__songs__error");
-  const genreError = document.getElementById("artist__genre__error");
-  const artistProfilePictureError = document.getElementById(
+const numberOfSongsError = document.getElementById("number__of__songs__error");
+const genreError = document.getElementById("genre__error");
+const artistProfilePictureError = document.getElementById(
     "artist__picture__error"
   );
-  const genderError = document.getElementById("artist__gender__error");
+const genderError = document.getElementById("gender__error");
+const passwordError = document.getElementById('password__error')
+const roleError = document.getElementById('role__error')
+
+const validate = (event) => {
+ 
+  
 
 
   let checkValid = true;
@@ -88,7 +91,7 @@ const validate = (event) => {
     checkValid = false;
 
   } else {
-    firstNameError.innerHTML = " Field correctly filled ";
+    firstNameError.innerHTML = "  ";
     firstNameError.style = "color:#90EE90 ";
     firstName.style.border = "1px solid #90EE90";
 
@@ -151,7 +154,7 @@ const validate = (event) => {
     stageName.focus();
     checkValid = false;
   } else {
-    stageNameError.innerHTML = "Field correctly filled ";
+    stageNameError.innerHTML = " ";
     stageNameError.style = "color:#90EE90 ";
     stageName.style.border = "1px solid #90EE90";
   }
@@ -169,7 +172,7 @@ const validate = (event) => {
     artistId.focus();
     checkValid = false;
   } else {
-    artistIdError.innerHTML = "Field correctly filled ";
+    artistIdError.innerHTML = " ";
     artistIdError.style = "color:#90EE90 ";
     artistId.style.border = "1px solid #90EE90";
   }
@@ -187,7 +190,7 @@ const validate = (event) => {
     telephoneContact.focus();
     checkValid = false;
   } else {
-    phoneNumberError.innerHTML = "Field correctly filled ";
+    phoneNumberError.innerHTML = " ";
     phoneNumberError.style = "color:#90EE90 ";
     telephoneContact.style.border = "1px solid #90EE90";
   }
@@ -204,7 +207,7 @@ const validate = (event) => {
     artistEmail.focus();
     checkValid = false;
   } else {
-    emailError.innerHTML = "Field correctly filled ";
+    emailError.innerHTML = " ";
     emailError.style = "color:#90EE90 ";
     artistEmail.style.border = "1px solid #90EE90";
   }
@@ -216,7 +219,7 @@ const validate = (event) => {
     artistDob.focus();
     checkValid = false;
   } else {
-    artistDobError.innerHTML = "Field correctly filled ";
+    artistDobError.innerHTML = " ";
     artistDobError.style = "color:#90EE90 ";
     artistDob.style.border = "1px solid #90EE90";
   }
@@ -250,7 +253,7 @@ const validate = (event) => {
     districtBasedIn.focus();
     checkValid = false;
   } else {
-    districtBasedInError.innerHTML = " Field correctly filled ";
+    districtBasedInError.innerHTML = "  ";
     districtBasedInError.style = "color:#90EE90 ";
     districtBasedIn.style.border = "1px solid #90EE90";
   }
@@ -268,7 +271,7 @@ const validate = (event) => {
     nationalIdNumber.focus();
     checkValid = false;
   } else {
-    artistNinError.innerHTML = "Field correctly filled ";
+    artistNinError.innerHTML = " ";
     artistNinError.style = "color:#90EE90 ";
     nationalIdNumber.style.border = "1px solid #90EE90";
   }
@@ -280,41 +283,41 @@ const validate = (event) => {
     dateOfStart.focus();
     checkValid = false;
   } else {
-    dateOfStartError.innerHTML = "Field correctly filled ";
+    dateOfStartError.innerHTML = " ";
     dateOfStartError.style = "color:#90EE90 ";
     dateOfStart.style.border = "1px solid #90EE90";
   }
-  // validation of of the Artiste location.
-  if (location.value == "") {
-    locationError.innerHTML = "Artist location Field Required";
-    locationError.style = "color:#FF7F7F";
-    location.style.border = "1px solid red";
-    location.focus();
+  // validation of of the Artiste artistLocation.
+  if (artistLocation.value == "") {
+    artistLocationError.innerHTML = "Artist artistLocation Field Required";
+    artistLocationError.style = "color:#FF7F7F";
+    artistLocation.style.border = "1px solid red";
+    artistLocation.focus();
     checkValid = false;
-  } else if (!(location.value.length > 1)) {
-    location.style.border = "1px solid red";
-    locationError.innerHTML =
-      "Artist location  is supposed to be more than one letter";
-    locationError.style = "color:#FF7F7F ";
-    location.focus();
+  } else if (!(artistLocation.value.length > 1)) {
+    artistLocation.style.border = "1px solid red";
+    artistLocationError.innerHTML =
+      "Artist artistLocation  is supposed to be more than one letter";
+    artistLocationError.style = "color:#FF7F7F ";
+    artistLocation.focus();
     checkValid = false;
-  } else if (!(location.value.match(noNumber))) {
-    locationError.innerHTML = "Artist location   should not  contain numbers";
-    locationError.style = "color:#FF7F7F ";
-    location.style.border = "1px solid red";
-    location.focus();
+  } else if (!(artistLocation.value.match(noNumber))) {
+    artistLocationError.innerHTML = "Artist artistLocation   should not  contain numbers";
+    artistLocationError.style = "color:#FF7F7F ";
+    artistLocation.style.border = "1px solid red";
+    artistLocation.focus();
     checkValid = false;
-  } else if (!(location.value.match(capitalize))) {
-    locationError.innerHTML =
-      " Artist location  should start with a capital letter";
-    locationError.style = "color:#FF7F7F ";
-    location.style.border = "1px solid red";
-    location.focus();
+  } else if (!(artistLocation.value.match(capitalize))) {
+    artistLocationError.innerHTML =
+      " Artist artistLocation  should start with a capital letter";
+    artistLocationError.style = "color:#FF7F7F ";
+    artistLocation.style.border = "1px solid red";
+    artistLocation.focus();
     checkValid = false;
   } else {
-    locationError.innerHTML = " Field correctly filled ";
-    locationError.style = "color:#90EE90 ";
-    location.style.border = "1px solid #90EE90";
+    artistLocationError.innerHTML = "  ";
+    artistLocationError.style = "color:#90EE90 ";
+    artistLocation.style.border = "1px solid #90EE90";
   }
   // validation of of the Number of Albums
   if (numberOfAlbums.value == "") {
@@ -332,7 +335,7 @@ const validate = (event) => {
     checkValid = false;
 
   } else {
-    numberOfAlbumsError.innerHTML = " Field correctly filled ";
+    numberOfAlbumsError.innerHTML = "  ";
     numberOfAlbumsError.style = "color:#90EE90 ";
     numberOfAlbums.style.border = "1px solid #90EE90";
   }
@@ -350,7 +353,7 @@ const validate = (event) => {
     numberOfSongs.focus();
     checkValid = false;
   } else {
-    numberOfSongsError.innerHTML = " Field correctly filled ";
+    numberOfSongsError.innerHTML = "  ";
     numberOfSongsError.style = "color:#90EE90 ";
     numberOfSongs.style.border = "1px solid #90EE90";
   }
@@ -381,7 +384,7 @@ const validate = (event) => {
     genre.focus();
     checkValid = false;
   } else {
-    genreError.innerHTML = "Field correctly filled";
+    genreError.innerHTML = "";
     genreError.style = "color:#90EE90 ";
     genre.style.border = "1px solid #90EE90";
   }
@@ -391,7 +394,7 @@ const validate = (event) => {
     genderError.style = "color:#FF7F7F";
     checkValid = false;
   } else {
-    genderError.innerHTML = "Field correctly filled";
+    genderError.innerHTML = "";
     genderError.style = "color:#90EE90 ";
   }
   // validation of of Artiste photo upload.
@@ -401,9 +404,36 @@ const validate = (event) => {
     uploadPicture.focus();
     checkValid = false;
   } else {
-    artistProfilePictureError.innerHTML = "Field correctly filled";
+    artistProfilePictureError.innerHTML = "";
     artistProfilePictureError.style = "color:#90EE90 ";
   }
+  //validating role
+  if(role == ''){
+    roleError.innerHTML = "Role Field Required";
+    roleError.style = "color:#FF7F7F";
+    role.focus();
+    checkValid = false;
+  }else{
+    roleError.innerHTML = "";
+    roleError.style = "color:#90EE90 ";
+
+  }
+  //validating password
+  if(password == ''){
+    passwordError.innerHTML = "Password Field Required";
+    passwordError.style = "color:#FF7F7F";
+    password.focus();
+    checkValid = false;
+  }else if(password.length < 8){
+    passwordError.innerHTML = "Password should be at least 8 characters";
+    passwordError.style = "color:#FF7F7F";
+    password.focus();
+    checkValid = false;
+  }else{
+    passwordError.innerHTML = "";
+    passwordError.style = "color:#90EE90 ";
+  }
+
   //  return true;
 
   if (!checkValid) {
